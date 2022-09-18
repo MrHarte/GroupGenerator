@@ -7,7 +7,9 @@ namespace GroupGenerator
 {
     public partial class GroupsForm : Form
     {
-        public BindingList<Person> personList;
+        private BindingList<Person> personList;
+
+        private Random rng;
 
         public GroupsForm()
         {
@@ -15,6 +17,9 @@ namespace GroupGenerator
             this.personList = new BindingList<Person>();
             groupsListBox.DataSource = this.personList;
             groupsListBox.DisplayMember = "Name";
+            rng = new Random();
+            // TODO remove next line
+            this.loadExampleListButton_Click(this, new EventArgs());
         }
 
         private void shuffleButton_Click(object sender, EventArgs e)
@@ -24,7 +29,11 @@ namespace GroupGenerator
 
         private void pickOneButton_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 20; i++)
+            {
+                Thread.Sleep(20*i);
+                groupsListBox.SetSelected(rng.Next(personList.Count), true);
+            }
         }
 
         private void loadExampleListButton_Click(object sender, EventArgs e)
@@ -51,6 +60,54 @@ namespace GroupGenerator
             this.personList.Add(new Person("Quinn Garvey"));
             this.personList.Add(new Person("William Zabka"));
             this.personList.Shuffle();
+        }
+
+        private void splitIntoGroupsOfButton_Click(object sender, EventArgs e)
+        {
+            int groupSize;
+            try
+            {
+                groupSize = int.Parse(groupSizeBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter numbers only!");
+                return;
+            }
+
+            personList.Shuffle();
+        }
+
+        private void groupSizeBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                splitIntoGroupsOfButton_Click(this, new EventArgs());
+            }
+        }
+
+        private void splitIntoGroupsButton_Click(object sender, EventArgs e)
+        {
+            int numberOfGroups;
+            try
+            {
+                numberOfGroups = int.Parse(numberOfGroupsBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter numbers only!");
+                return;
+            }
+
+            personList.Shuffle();
+        }
+
+        private void numberOfGroupsBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                splitIntoGroupsButton_Click(this, new EventArgs());
+            }
         }
     }
 }

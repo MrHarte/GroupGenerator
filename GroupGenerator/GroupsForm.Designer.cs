@@ -1,4 +1,6 @@
-﻿namespace GroupGenerator
+﻿using System.Reflection;
+
+namespace GroupGenerator
 {
     partial class GroupsForm
     {
@@ -66,11 +68,12 @@
             this.groupSizeBox.Name = "groupSizeBox";
             this.groupSizeBox.Size = new System.Drawing.Size(50, 23);
             this.groupSizeBox.TabIndex = 2;
+            this.groupSizeBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.groupSizeBox_KeyDown);
             // 
             // numberOfGroupsLabel
             // 
             this.numberOfGroupsLabel.AutoSize = true;
-            this.numberOfGroupsLabel.Location = new System.Drawing.Point(273, 244);
+            this.numberOfGroupsLabel.Location = new System.Drawing.Point(273, 179);
             this.numberOfGroupsLabel.Name = "numberOfGroupsLabel";
             this.numberOfGroupsLabel.Size = new System.Drawing.Size(54, 15);
             this.numberOfGroupsLabel.TabIndex = 3;
@@ -78,15 +81,16 @@
             // 
             // numberOfGroupsBox
             // 
-            this.numberOfGroupsBox.Location = new System.Drawing.Point(331, 241);
+            this.numberOfGroupsBox.Location = new System.Drawing.Point(331, 176);
             this.numberOfGroupsBox.Name = "numberOfGroupsBox";
             this.numberOfGroupsBox.Size = new System.Drawing.Size(50, 23);
             this.numberOfGroupsBox.TabIndex = 4;
+            this.numberOfGroupsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numberOfGroupsBox_KeyDown);
             // 
             // groupsLabel
             // 
             this.groupsLabel.AutoSize = true;
-            this.groupsLabel.Location = new System.Drawing.Point(387, 244);
+            this.groupsLabel.Location = new System.Drawing.Point(387, 179);
             this.groupsLabel.Name = "groupsLabel";
             this.groupsLabel.Size = new System.Drawing.Size(44, 15);
             this.groupsLabel.TabIndex = 5;
@@ -100,21 +104,23 @@
             this.splitIntoGroupsOfButton.TabIndex = 6;
             this.splitIntoGroupsOfButton.Text = "Split";
             this.splitIntoGroupsOfButton.UseVisualStyleBackColor = true;
+            this.splitIntoGroupsOfButton.Click += new System.EventHandler(this.splitIntoGroupsOfButton_Click);
             // 
             // splitIntoGroupsButton
             // 
-            this.splitIntoGroupsButton.Location = new System.Drawing.Point(273, 270);
+            this.splitIntoGroupsButton.Location = new System.Drawing.Point(273, 205);
             this.splitIntoGroupsButton.Name = "splitIntoGroupsButton";
             this.splitIntoGroupsButton.Size = new System.Drawing.Size(164, 23);
             this.splitIntoGroupsButton.TabIndex = 7;
             this.splitIntoGroupsButton.Text = "Split";
             this.splitIntoGroupsButton.UseVisualStyleBackColor = true;
+            this.splitIntoGroupsButton.Click += new System.EventHandler(this.splitIntoGroupsButton_Click);
             // 
             // shuffleButton
             // 
-            this.shuffleButton.Location = new System.Drawing.Point(273, 38);
+            this.shuffleButton.Location = new System.Drawing.Point(273, 41);
             this.shuffleButton.Name = "shuffleButton";
-            this.shuffleButton.Size = new System.Drawing.Size(161, 23);
+            this.shuffleButton.Size = new System.Drawing.Size(164, 23);
             this.shuffleButton.TabIndex = 8;
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
@@ -124,7 +130,7 @@
             // 
             this.editListButton.Location = new System.Drawing.Point(273, 12);
             this.editListButton.Name = "editListButton";
-            this.editListButton.Size = new System.Drawing.Size(161, 23);
+            this.editListButton.Size = new System.Drawing.Size(164, 23);
             this.editListButton.TabIndex = 9;
             this.editListButton.Text = "Edit List";
             this.editListButton.UseVisualStyleBackColor = true;
@@ -153,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 450);
+            this.ClientSize = new System.Drawing.Size(450, 450);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
