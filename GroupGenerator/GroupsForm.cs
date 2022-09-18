@@ -20,6 +20,8 @@ namespace GroupGenerator
             rng = new Random();
             // TODO remove next line
             this.loadExampleListButton_Click(this, new EventArgs());
+            // and add the next
+            // this.editListButton_Click(this, new EventArgs());
         }
 
         private void shuffleButton_Click(object sender, EventArgs e)
@@ -108,6 +110,15 @@ namespace GroupGenerator
             {
                 splitIntoGroupsButton_Click(this, new EventArgs());
             }
+        }
+
+        private void editListButton_Click(object sender, EventArgs e)
+        {
+            ImportForm importForm = new ImportForm(this.personList);
+            // Attention, there is an error in the book about this (p. 634)!
+            // Modeless forms are displayed with the Show() function. 
+            // However, we want a modal form:
+            importForm.ShowDialog();
         }
     }
 }

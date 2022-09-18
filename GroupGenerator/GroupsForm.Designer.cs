@@ -134,6 +134,7 @@ namespace GroupGenerator
             this.editListButton.TabIndex = 9;
             this.editListButton.Text = "Edit List";
             this.editListButton.UseVisualStyleBackColor = true;
+            this.editListButton.Click += new System.EventHandler(this.editListButton_Click);
             // 
             // pickOneButton
             // 
