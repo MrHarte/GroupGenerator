@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupsListBox = new System.Windows.Forms.ListBox();
+            this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -37,14 +38,25 @@
             this.groupsListBox.ItemHeight = 15;
             this.groupsListBox.Location = new System.Drawing.Point(12, 12);
             this.groupsListBox.Name = "groupsListBox";
-            this.groupsListBox.Size = new System.Drawing.Size(360, 439);
+            this.groupsListBox.Size = new System.Drawing.Size(360, 499);
             this.groupsListBox.TabIndex = 0;
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(12, 526);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(360, 23);
+            this.closeButton.TabIndex = 1;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // DisplayGroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 461);
+            this.ClientSize = new System.Drawing.Size(384, 561);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.groupsListBox);
             this.Name = "DisplayGroupsForm";
             this.Text = "Groups";
@@ -55,5 +67,6 @@
         #endregion
 
         private ListBox groupsListBox;
+        private Button closeButton;
     }
 }

@@ -27,7 +27,12 @@ namespace GroupGenerator
                 }
                 groupsListBox.Items.Add("");
             }
-            
+            closeButton.Select();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
