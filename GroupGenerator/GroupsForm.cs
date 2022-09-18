@@ -78,6 +78,8 @@ namespace GroupGenerator
             }
 
             personList.Shuffle();
+
+            // TODO implement feature
         }
 
         private void groupSizeBox_KeyDown(object sender, KeyEventArgs e)
@@ -102,6 +104,23 @@ namespace GroupGenerator
             }
 
             personList.Shuffle();
+
+            // TODO fix uneven splitting
+            int maxGroupSize = personList.Count / numberOfGroups + 1;
+            Person[,] groups = new Person[numberOfGroups,maxGroupSize];
+            for (int i = 0; i < numberOfGroups; i++)
+            {
+                for (int j = 0; j < maxGroupSize; j++)
+                {
+                    if (i * maxGroupSize + j < personList.Count)
+                    {
+                        groups[i, j] = personList[i * maxGroupSize + j];
+                    } 
+                }
+            }
+
+            DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
+            displayGroupsForm.ShowDialog();
         }
 
         private void numberOfGroupsBox_KeyDown(object sender, KeyEventArgs e)
