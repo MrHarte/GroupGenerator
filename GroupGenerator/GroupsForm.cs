@@ -105,17 +105,27 @@ namespace GroupGenerator
 
             personList.Shuffle();
 
-            // TODO fix uneven splitting
-            int maxGroupSize = personList.Count / numberOfGroups + 1;
-            Person[,] groups = new Person[numberOfGroups,maxGroupSize];
-            for (int i = 0; i < numberOfGroups; i++)
+            int maxGroupSize = personList.Count / numberOfGroups;
+            if (personList.Count % numberOfGroups != 0)
             {
-                for (int j = 0; j < maxGroupSize; j++)
+                maxGroupSize++;
+            }
+
+            Person[,] groups = new Person[numberOfGroups,maxGroupSize];
+            // Go through persons in group
+            for (int personNr = 0; personNr < maxGroupSize; personNr++)
+            {
+                // Go through groups
+                for (int groupNr = 0; groupNr < numberOfGroups; groupNr++)
                 {
-                    if (i * maxGroupSize + j < personList.Count)
+                    if (groupNr + personNr * numberOfGroups < personList.Count)
                     {
-                        groups[i, j] = personList[i * maxGroupSize + j];
+                        groups[groupNr, personNr] = personList[groupNr + personNr * numberOfGroups];
                     } 
+                    else
+                    { 
+                        break;
+                    }s
                 }
             }
 
