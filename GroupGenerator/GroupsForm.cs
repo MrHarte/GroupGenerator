@@ -4,12 +4,27 @@ using System.ComponentModel;
 
 namespace GroupGenerator
 {
+    /// <summary>
+    /// Main form class
+    /// </summary>
     public partial class GroupsForm : Form
     {
+        /// <summary>
+        /// List of people used to make groups
+        /// </summary>
+        /// <remarks>
+        /// This list is bound to the ListBox displaying the people in the groups form.
+        /// </remarks>
         private BindingList<Person> _personList;
 
+        /// <summary>
+        /// Random number generator for picking
+        /// </summary>
         private Random _rng;
 
+        /// <summary>
+        /// Constructor of the main form
+        /// </summary>
         public GroupsForm()
         {
             InitializeComponent();
@@ -20,11 +35,24 @@ namespace GroupGenerator
             this.editListButton_Click(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Shuffles the people list
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void shuffleButton_Click(object sender, EventArgs e)
         {
             _personList.Shuffle();
         }
 
+        /// <summary>
+        /// Picks one item of the listBox randomly
+        /// </summary>
+        /// <remarks>
+        /// Jumps the selected item in the listBox 20 times slowing down gradually
+        /// </remarks>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void pickOneButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < 20; i++)
@@ -34,6 +62,11 @@ namespace GroupGenerator
             }
         }
 
+        /// <summary>
+        /// Loads an example list of people into the listBox
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void loadExampleListButton_Click(object sender, EventArgs e)
         {
             this._personList.Clear();
@@ -60,9 +93,14 @@ namespace GroupGenerator
             this._personList.Shuffle();
         }
 
+        /// <summary>
+        /// Splits the people list into groups of a specified size and displays them
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void splitIntoGroupsOfButton_Click(object sender, EventArgs e)
         {
-            int maxGroupSize = getNumberFrom(groupSizeBox);
+            int maxGroupSize = GroupsForm.getNumberFrom(groupSizeBox);
             if (maxGroupSize == 0)
                 return;
 
@@ -72,21 +110,31 @@ namespace GroupGenerator
             if (_personList.Count % maxGroupSize != 0)
                 numberOfGroups++;
 
-            Person[,] groups = splitIntoGroups(_personList, numberOfGroups, maxGroupSize);
+            Person[,] groups = GroupsForm.splitIntoGroups(_personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Executes the splitIntoGroupsOfButton_Click method on clicking "Enter" in the groupSizeBox
+        /// </summary>
+        /// <param name="sender">TextBox that was typed in</param>
+        /// <param name="e">Additional event arguments</param>
         private void groupSizeBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 splitIntoGroupsOfButton_Click(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Splits the people list into specified number of groups and displays them
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void splitIntoGroupsButton_Click(object sender, EventArgs e)
         {
-            int numberOfGroups = this.getNumberFrom(numberOfGroupsBox);
+            int numberOfGroups = GroupsForm.getNumberFrom(numberOfGroupsBox);
             if (numberOfGroups == 0)
                 return;
 
@@ -98,18 +146,31 @@ namespace GroupGenerator
                 maxGroupSize++;
             }
 
-            Person[,] groups = splitIntoGroups(_personList, numberOfGroups, maxGroupSize);
+            Person[,] groups = GroupsForm.splitIntoGroups(_personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Executes the splitIntoGroupsButton_Click method on clicking "Enter" in the numberOfGroupsBox
+        /// </summary>
+        /// <param name="sender">TextBox that was typed in</param>
+        /// <param name="e">Additional event arguments</param>
         private void numberOfGroupsBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 splitIntoGroupsButton_Click(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Opens the ImportForm to modify the personList
+        /// </summary>
+        /// <remarks>
+        /// Opened at the start for initial import
+        /// </remarks>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">Additional event arguments</param>
         private void editListButton_Click(object sender, EventArgs e)
         {
             ImportForm importForm = new ImportForm(this._personList);
@@ -119,7 +180,15 @@ namespace GroupGenerator
             importForm.ShowDialog();
         }
 
-        private int getNumberFrom(TextBox textBox)
+        /// <summary>
+        /// Reads number from textBox and returns it
+        /// </summary>
+        /// <remarks>
+        /// Displays an error message in a MessageBox and returns 0 if invalid number was read
+        /// </remarks>
+        /// <param name="textBox">textBox to read number from</param>
+        /// <returns>entered integer, 0 if error</returns>
+        private static int getNumberFrom(TextBox textBox)
         {
             int number;
             try
@@ -136,18 +205,31 @@ namespace GroupGenerator
             return number;
         }
 
-        private Person[,] splitIntoGroups(Collection<Person> persons, int numberOfGroups, int maxGroupSize)
+        /// <summary>
+        /// Splits the given collection of people into numberOfGroups groups with a max size of maxSizeOfGroups
+        /// </summary>
+        /// <param name="people">List of people to be split into groups</param>
+        /// <param name="numberOfGroups">Number of groups to be created</param>
+        /// <param name="maxGroupSize">Maximum size of groups</param>
+        /// <returns>Person Array containing the groups</returns>
+        /// <exception cref="ArgumentException">If the numberOfGroups or maxGroupSize do not make sense</exception>
+        private static Person[,] splitIntoGroups(Collection<Person> people, int numberOfGroups, int maxGroupSize)
         {
+            if (numberOfGroups <= 0 && maxGroupSize <= 0)
+                throw new ArgumentException("Negative list size not possible!");
+            if (numberOfGroups * maxGroupSize <= people.Count)
+                throw new ArgumentException("Lists not long enough for people collection!");
+
             Person[,] groups = new Person[numberOfGroups, maxGroupSize];
-            // Go through persons in group
+            // Go through people in group
             for (int personNr = 0; personNr < maxGroupSize; personNr++)
             {
                 // Go through groups
                 for (int groupNr = 0; groupNr < numberOfGroups; groupNr++)
                 {
-                    if (groupNr + personNr * numberOfGroups < persons.Count)
+                    if (groupNr + personNr * numberOfGroups < people.Count)
                     {
-                        groups[groupNr, personNr] = persons[groupNr + personNr * numberOfGroups];
+                        groups[groupNr, personNr] = people[groupNr + personNr * numberOfGroups];
                     }
                     else
                     {

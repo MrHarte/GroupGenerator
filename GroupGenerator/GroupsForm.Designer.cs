@@ -142,7 +142,7 @@ namespace GroupGenerator
             this.pickOneButton.Name = "pickOneButton";
             this.pickOneButton.Size = new System.Drawing.Size(164, 23);
             this.pickOneButton.TabIndex = 10;
-            this.pickOneButton.Text = "Pick one Randomly";
+            this.pickOneButton.Text = "Pick One Randomly";
             this.pickOneButton.UseVisualStyleBackColor = true;
             this.pickOneButton.Click += new System.EventHandler(this.pickOneButton_Click);
             // 
