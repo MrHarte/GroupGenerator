@@ -1,8 +1,7 @@
 namespace GroupGenerator
 {
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
     using ExtensionMethods;
+    using System.ComponentModel;
 
     /// <summary>
     /// Main form class.
