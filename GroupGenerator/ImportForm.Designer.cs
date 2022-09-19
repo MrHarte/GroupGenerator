@@ -49,7 +49,7 @@
             this.importButton.TabIndex = 1;
             this.importButton.Text = "Import/Save";
             this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            this.importButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // cancelButton
             // 
@@ -59,7 +59,7 @@
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ImportForm
             // 

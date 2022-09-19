@@ -68,7 +68,7 @@ namespace GroupGenerator
             this.groupSizeBox.Name = "groupSizeBox";
             this.groupSizeBox.Size = new System.Drawing.Size(50, 23);
             this.groupSizeBox.TabIndex = 2;
-            this.groupSizeBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.groupSizeBox_KeyDown);
+            this.groupSizeBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GroupSizeBox_KeyDown);
             // 
             // numberOfGroupsLabel
             // 
@@ -85,7 +85,7 @@ namespace GroupGenerator
             this.numberOfGroupsBox.Name = "numberOfGroupsBox";
             this.numberOfGroupsBox.Size = new System.Drawing.Size(50, 23);
             this.numberOfGroupsBox.TabIndex = 4;
-            this.numberOfGroupsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numberOfGroupsBox_KeyDown);
+            this.numberOfGroupsBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumberOfGroupsBox_KeyDown);
             // 
             // groupsLabel
             // 
@@ -104,7 +104,7 @@ namespace GroupGenerator
             this.splitIntoGroupsOfButton.TabIndex = 6;
             this.splitIntoGroupsOfButton.Text = "Split";
             this.splitIntoGroupsOfButton.UseVisualStyleBackColor = true;
-            this.splitIntoGroupsOfButton.Click += new System.EventHandler(this.splitIntoGroupsOfButton_Click);
+            this.splitIntoGroupsOfButton.Click += new System.EventHandler(this.SplitIntoGroupsOfButton_Click);
             // 
             // splitIntoGroupsButton
             // 
@@ -114,7 +114,7 @@ namespace GroupGenerator
             this.splitIntoGroupsButton.TabIndex = 7;
             this.splitIntoGroupsButton.Text = "Split";
             this.splitIntoGroupsButton.UseVisualStyleBackColor = true;
-            this.splitIntoGroupsButton.Click += new System.EventHandler(this.splitIntoGroupsButton_Click);
+            this.splitIntoGroupsButton.Click += new System.EventHandler(this.SplitIntoGroupsButton_Click);
             // 
             // shuffleButton
             // 
@@ -124,7 +124,7 @@ namespace GroupGenerator
             this.shuffleButton.TabIndex = 8;
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
-            this.shuffleButton.Click += new System.EventHandler(this.shuffleButton_Click);
+            this.shuffleButton.Click += new System.EventHandler(this.ShuffleButton_Click);
             // 
             // editListButton
             // 
@@ -134,7 +134,7 @@ namespace GroupGenerator
             this.editListButton.TabIndex = 9;
             this.editListButton.Text = "Edit List";
             this.editListButton.UseVisualStyleBackColor = true;
-            this.editListButton.Click += new System.EventHandler(this.editListButton_Click);
+            this.editListButton.Click += new System.EventHandler(this.EditListButton_Click);
             // 
             // pickOneButton
             // 
@@ -144,7 +144,7 @@ namespace GroupGenerator
             this.pickOneButton.TabIndex = 10;
             this.pickOneButton.Text = "Pick One Randomly";
             this.pickOneButton.UseVisualStyleBackColor = true;
-            this.pickOneButton.Click += new System.EventHandler(this.pickOneButton_Click);
+            this.pickOneButton.Click += new System.EventHandler(this.PickOneButton_Click);
             // 
             // loadExampleListButton
             // 
@@ -154,7 +154,7 @@ namespace GroupGenerator
             this.loadExampleListButton.TabIndex = 11;
             this.loadExampleListButton.Text = "Load Example List";
             this.loadExampleListButton.UseVisualStyleBackColor = true;
-            this.loadExampleListButton.Click += new System.EventHandler(this.loadExampleListButton_Click);
+            this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
             // GroupsForm
             // 

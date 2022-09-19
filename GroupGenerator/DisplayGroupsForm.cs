@@ -1,48 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace GroupGenerator
+﻿namespace GroupGenerator
 {
     /// <summary>
-    /// Form to display groups given in a 2D array
+    /// Form to display groups given in a 2D array.
     /// </summary>
     public partial class DisplayGroupsForm : Form
     {
         /// <summary>
-        /// Constructor of the form displaying the groups in the listBox
+        /// Initializes a new instance of the <see cref="DisplayGroupsForm"/> class.
+        /// Constructor of the form displaying the groups in the listBox.
         /// </summary>
-        /// <param name="groups">Groups to be displayed in a 2D array</param>
+        /// <param name="groups">Groups to be displayed in a 2D array.</param>
         public DisplayGroupsForm(Person[,] groups)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             for (int i = 0; i < groups.GetLength(0); i++)
             {
-                groupsListBox.Items.Add("Group " + (i+1).ToString() + ":");
+                this.groupsListBox.Items.Add("Group " + (i + 1).ToString() + ":");
                 for (int j = 0; j < groups.GetLength(1); j++)
                 {
                     if (groups[i, j] != null)
                     {
-                        groupsListBox.Items.Add(groups[i, j].ToString());
+                        this.groupsListBox.Items.Add(groups[i, j].ToString());
                     }
                 }
-                groupsListBox.Items.Add("");
+
+                this.groupsListBox.Items.Add(string.Empty);
             }
-            closeButton.Select();
+
+            this.closeButton.Select();
         }
 
         /// <summary>
-        /// Closes the form
+        /// Closes the form.
         /// </summary>
-        /// <param name="sender">The button that was clicked</param>
-        /// <param name="e">Additional event arguments</param>
-        private void closeButton_Click(object sender, EventArgs e)
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
