@@ -1,4 +1,4 @@
-﻿namespace GroupGenerator
+﻿  namespace GroupGenerator
 {
     /// <summary>
     /// Represents one person saving their name.

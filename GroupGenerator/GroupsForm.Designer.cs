@@ -42,6 +42,11 @@ namespace GroupGenerator
             this.editListButton = new System.Windows.Forms.Button();
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
+            this.formatGroupBox = new System.Windows.Forms.GroupBox();
+            this.firstNameRadioButton = new System.Windows.Forms.RadioButton();
+            this.lastNameRadioButton = new System.Windows.Forms.RadioButton();
+            this.studentNumberRadioButton = new System.Windows.Forms.RadioButton();
+            this.formatGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -64,7 +69,7 @@ namespace GroupGenerator
             // 
             // groupSizeBox
             // 
-            this.groupSizeBox.Location = new System.Drawing.Point(387, 118);
+            this.groupSizeBox.Location = new System.Drawing.Point(402, 118);
             this.groupSizeBox.Name = "groupSizeBox";
             this.groupSizeBox.Size = new System.Drawing.Size(50, 23);
             this.groupSizeBox.TabIndex = 2;
@@ -81,7 +86,7 @@ namespace GroupGenerator
             // 
             // numberOfGroupsBox
             // 
-            this.numberOfGroupsBox.Location = new System.Drawing.Point(331, 176);
+            this.numberOfGroupsBox.Location = new System.Drawing.Point(343, 177);
             this.numberOfGroupsBox.Name = "numberOfGroupsBox";
             this.numberOfGroupsBox.Size = new System.Drawing.Size(50, 23);
             this.numberOfGroupsBox.TabIndex = 4;
@@ -90,7 +95,7 @@ namespace GroupGenerator
             // groupsLabel
             // 
             this.groupsLabel.AutoSize = true;
-            this.groupsLabel.Location = new System.Drawing.Point(387, 179);
+            this.groupsLabel.Location = new System.Drawing.Point(404, 179);
             this.groupsLabel.Name = "groupsLabel";
             this.groupsLabel.Size = new System.Drawing.Size(44, 15);
             this.groupsLabel.TabIndex = 5;
@@ -100,7 +105,7 @@ namespace GroupGenerator
             // 
             this.splitIntoGroupsOfButton.Location = new System.Drawing.Point(273, 147);
             this.splitIntoGroupsOfButton.Name = "splitIntoGroupsOfButton";
-            this.splitIntoGroupsOfButton.Size = new System.Drawing.Size(164, 23);
+            this.splitIntoGroupsOfButton.Size = new System.Drawing.Size(179, 23);
             this.splitIntoGroupsOfButton.TabIndex = 6;
             this.splitIntoGroupsOfButton.Text = "Split";
             this.splitIntoGroupsOfButton.UseVisualStyleBackColor = true;
@@ -110,7 +115,7 @@ namespace GroupGenerator
             // 
             this.splitIntoGroupsButton.Location = new System.Drawing.Point(273, 205);
             this.splitIntoGroupsButton.Name = "splitIntoGroupsButton";
-            this.splitIntoGroupsButton.Size = new System.Drawing.Size(164, 23);
+            this.splitIntoGroupsButton.Size = new System.Drawing.Size(179, 23);
             this.splitIntoGroupsButton.TabIndex = 7;
             this.splitIntoGroupsButton.Text = "Split";
             this.splitIntoGroupsButton.UseVisualStyleBackColor = true;
@@ -120,7 +125,7 @@ namespace GroupGenerator
             // 
             this.shuffleButton.Location = new System.Drawing.Point(273, 41);
             this.shuffleButton.Name = "shuffleButton";
-            this.shuffleButton.Size = new System.Drawing.Size(164, 23);
+            this.shuffleButton.Size = new System.Drawing.Size(179, 23);
             this.shuffleButton.TabIndex = 8;
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
@@ -130,7 +135,7 @@ namespace GroupGenerator
             // 
             this.editListButton.Location = new System.Drawing.Point(273, 12);
             this.editListButton.Name = "editListButton";
-            this.editListButton.Size = new System.Drawing.Size(164, 23);
+            this.editListButton.Size = new System.Drawing.Size(179, 23);
             this.editListButton.TabIndex = 9;
             this.editListButton.Text = "Edit List";
             this.editListButton.UseVisualStyleBackColor = true;
@@ -140,7 +145,7 @@ namespace GroupGenerator
             // 
             this.pickOneButton.Location = new System.Drawing.Point(273, 369);
             this.pickOneButton.Name = "pickOneButton";
-            this.pickOneButton.Size = new System.Drawing.Size(164, 23);
+            this.pickOneButton.Size = new System.Drawing.Size(179, 23);
             this.pickOneButton.TabIndex = 10;
             this.pickOneButton.Text = "Pick One Randomly";
             this.pickOneButton.UseVisualStyleBackColor = true;
@@ -150,17 +155,63 @@ namespace GroupGenerator
             // 
             this.loadExampleListButton.Location = new System.Drawing.Point(273, 413);
             this.loadExampleListButton.Name = "loadExampleListButton";
-            this.loadExampleListButton.Size = new System.Drawing.Size(164, 23);
+            this.loadExampleListButton.Size = new System.Drawing.Size(179, 23);
             this.loadExampleListButton.TabIndex = 11;
             this.loadExampleListButton.Text = "Load Example List";
             this.loadExampleListButton.UseVisualStyleBackColor = true;
             this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
+            // formatGroupBox
+            // 
+            this.formatGroupBox.Controls.Add(this.studentNumberRadioButton);
+            this.formatGroupBox.Controls.Add(this.lastNameRadioButton);
+            this.formatGroupBox.Controls.Add(this.firstNameRadioButton);
+            this.formatGroupBox.Location = new System.Drawing.Point(273, 250);
+            this.formatGroupBox.Name = "formatGroupBox";
+            this.formatGroupBox.Size = new System.Drawing.Size(179, 100);
+            this.formatGroupBox.TabIndex = 12;
+            this.formatGroupBox.TabStop = false;
+            this.formatGroupBox.Text = "Format";
+            // 
+            // firstNameRadioButton
+            // 
+            this.firstNameRadioButton.AutoSize = true;
+            this.firstNameRadioButton.Location = new System.Drawing.Point(6, 22);
+            this.firstNameRadioButton.Name = "firstNameRadioButton";
+            this.firstNameRadioButton.Size = new System.Drawing.Size(82, 19);
+            this.firstNameRadioButton.TabIndex = 0;
+            this.firstNameRadioButton.TabStop = true;
+            this.firstNameRadioButton.Text = "First Name";
+            this.firstNameRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // lastNameRadioButton
+            // 
+            this.lastNameRadioButton.AutoSize = true;
+            this.lastNameRadioButton.Location = new System.Drawing.Point(6, 47);
+            this.lastNameRadioButton.Name = "lastNameRadioButton";
+            this.lastNameRadioButton.Size = new System.Drawing.Size(81, 19);
+            this.lastNameRadioButton.TabIndex = 1;
+            this.lastNameRadioButton.TabStop = true;
+            this.lastNameRadioButton.Text = "Last Name";
+            this.lastNameRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // studentNumberRadioButton
+            // 
+            this.studentNumberRadioButton.AutoSize = true;
+            this.studentNumberRadioButton.Location = new System.Drawing.Point(6, 72);
+            this.studentNumberRadioButton.Name = "studentNumberRadioButton";
+            this.studentNumberRadioButton.Size = new System.Drawing.Size(113, 19);
+            this.studentNumberRadioButton.TabIndex = 2;
+            this.studentNumberRadioButton.TabStop = true;
+            this.studentNumberRadioButton.Text = "Student Number";
+            this.studentNumberRadioButton.UseVisualStyleBackColor = true;
+            // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 450);
+            this.ClientSize = new System.Drawing.Size(463, 450);
+            this.Controls.Add(this.formatGroupBox);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
@@ -175,6 +226,8 @@ namespace GroupGenerator
             this.Controls.Add(this.groupsListBox);
             this.Name = "GroupsForm";
             this.Text = "Group Generator";
+            this.formatGroupBox.ResumeLayout(false);
+            this.formatGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +247,9 @@ namespace GroupGenerator
         private Button editListButton;
         private Button pickOneButton;
         private Button loadExampleListButton;
+        private GroupBox formatGroupBox;
+        private RadioButton studentNumberRadioButton;
+        private RadioButton lastNameRadioButton;
+        private RadioButton firstNameRadioButton;
     }
 }
