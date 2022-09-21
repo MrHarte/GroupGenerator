@@ -30,7 +30,6 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
