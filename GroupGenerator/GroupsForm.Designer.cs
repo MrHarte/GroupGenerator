@@ -42,9 +42,9 @@ namespace GroupGenerator
             this.editListButton = new System.Windows.Forms.Button();
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
-            this.format1RadioButton = new System.Windows.Forms.RadioButton();
-            this.format2RadioButton = new System.Windows.Forms.RadioButton();
-            this.format3RadioButton = new System.Windows.Forms.RadioButton();
+            this.display1RadioButton = new System.Windows.Forms.RadioButton();
+            this.display2RadioButton = new System.Windows.Forms.RadioButton();
+            this.display3RadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -168,47 +168,50 @@ namespace GroupGenerator
             this.loadExampleListButton.UseVisualStyleBackColor = true;
             this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
-            // format1RadioButton
+            // display1RadioButton
             // 
-            this.format1RadioButton.AutoSize = true;
-            this.format1RadioButton.Location = new System.Drawing.Point(342, 329);
-            this.format1RadioButton.Name = "format1RadioButton";
-            this.format1RadioButton.Size = new System.Drawing.Size(89, 24);
-            this.format1RadioButton.TabIndex = 12;
-            this.format1RadioButton.TabStop = true;
-            this.format1RadioButton.Text = "Format 1";
-            this.format1RadioButton.UseVisualStyleBackColor = true;
+            this.display1RadioButton.AutoSize = true;
+            this.display1RadioButton.Location = new System.Drawing.Point(342, 329);
+            this.display1RadioButton.Name = "display1RadioButton";
+            this.display1RadioButton.Size = new System.Drawing.Size(89, 24);
+            this.display1RadioButton.TabIndex = 12;
+            this.display1RadioButton.TabStop = true;
+            this.display1RadioButton.Text = "Format 1";
+            this.display1RadioButton.UseVisualStyleBackColor = true;
+            this.display1RadioButton.CheckedChanged += new System.EventHandler(this.display1RadioButton_CheckedChanged);
             // 
-            // format2RadioButton
+            // display2RadioButton
             // 
-            this.format2RadioButton.AutoSize = true;
-            this.format2RadioButton.Location = new System.Drawing.Point(342, 382);
-            this.format2RadioButton.Name = "format2RadioButton";
-            this.format2RadioButton.Size = new System.Drawing.Size(89, 24);
-            this.format2RadioButton.TabIndex = 13;
-            this.format2RadioButton.TabStop = true;
-            this.format2RadioButton.Text = "Format 2";
-            this.format2RadioButton.UseVisualStyleBackColor = true;
+            this.display2RadioButton.AutoSize = true;
+            this.display2RadioButton.Location = new System.Drawing.Point(342, 382);
+            this.display2RadioButton.Name = "display2RadioButton";
+            this.display2RadioButton.Size = new System.Drawing.Size(89, 24);
+            this.display2RadioButton.TabIndex = 13;
+            this.display2RadioButton.TabStop = true;
+            this.display2RadioButton.Text = "Format 2";
+            this.display2RadioButton.UseVisualStyleBackColor = true;
+            this.display2RadioButton.CheckedChanged += new System.EventHandler(this.display2RadioButton_CheckedChanged);
             // 
-            // format3RadioButton
+            // display3RadioButton
             // 
-            this.format3RadioButton.AutoSize = true;
-            this.format3RadioButton.Location = new System.Drawing.Point(342, 439);
-            this.format3RadioButton.Name = "format3RadioButton";
-            this.format3RadioButton.Size = new System.Drawing.Size(89, 24);
-            this.format3RadioButton.TabIndex = 14;
-            this.format3RadioButton.TabStop = true;
-            this.format3RadioButton.Text = "Format 3";
-            this.format3RadioButton.UseVisualStyleBackColor = true;
+            this.display3RadioButton.AutoSize = true;
+            this.display3RadioButton.Location = new System.Drawing.Point(342, 439);
+            this.display3RadioButton.Name = "display3RadioButton";
+            this.display3RadioButton.Size = new System.Drawing.Size(89, 24);
+            this.display3RadioButton.TabIndex = 14;
+            this.display3RadioButton.TabStop = true;
+            this.display3RadioButton.Text = "Format 3";
+            this.display3RadioButton.UseVisualStyleBackColor = true;
+            this.display3RadioButton.CheckedChanged += new System.EventHandler(this.display3RadioButton_CheckedChanged);
             // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 600);
-            this.Controls.Add(this.format3RadioButton);
-            this.Controls.Add(this.format2RadioButton);
-            this.Controls.Add(this.format1RadioButton);
+            this.Controls.Add(this.display3RadioButton);
+            this.Controls.Add(this.display2RadioButton);
+            this.Controls.Add(this.display1RadioButton);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
@@ -243,8 +246,8 @@ namespace GroupGenerator
         private Button editListButton;
         private Button pickOneButton;
         private Button loadExampleListButton;
-        private RadioButton format1RadioButton;
-        private RadioButton format2RadioButton;
-        private RadioButton format3RadioButton;
+        private RadioButton display1RadioButton;
+        private RadioButton display2RadioButton;
+        private RadioButton display3RadioButton;
     }
 }

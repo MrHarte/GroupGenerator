@@ -30,7 +30,6 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
@@ -189,6 +188,31 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        private void RefreshListBox()
+        {
+            // TO DO: Find something that works
+            this.groupsListBox.Hide();
+            this.groupsListBox.Show();
+        }
+
+        private void display1RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayMode = 1;
+            RefreshListBox();
+        }
+
+        private void display2RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayMode = 2;
+            RefreshListBox();
+        }
+
+        private void display3RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayMode = 3;
+            RefreshListBox();
         }
     }
 }
