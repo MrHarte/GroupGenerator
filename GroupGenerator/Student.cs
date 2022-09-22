@@ -52,20 +52,20 @@
             string lastName = string.Empty;
             string studentID = string.Empty;
 
+            if (this.Name.Contains('('))
+            {
+                studentID = this.Name.Split('(', ')')[1].Trim();
+            }
+
             if (this.Name.Contains(','))
             {
-                lastName = this.Name.Trim().Split(',')[0];
-                firstName = this.Name.Trim().Split(',')[1];
+                lastName = this.Name.Split(',', '(')[0].Trim();
+                firstName = this.Name.Split(',', '(')[1].Trim();
             }
             else
             {
-                firstName = this.Name.Trim().Split(' ')[0];
-                lastName = this.Name.Trim().Split(' ')[1];
-            }
-
-            if (this.Name.Contains('('))
-            {
-                studentID = this.Name.Trim().Split('(', ')')[1];
+                firstName = this.Name.Split(' ', '(')[0].Trim();
+                lastName = this.Name.Split(' ', '(')[1].Trim();
             }
 
             this.FirstName = firstName;

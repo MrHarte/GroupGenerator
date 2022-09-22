@@ -189,5 +189,13 @@ namespace GroupGenerator
              */
             importForm.ShowDialog();
         }
+
+        private void FirstLastRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Person person in this.personList)
+            {
+                Student student = (Student)person;
+            }
+        }
     }
 }

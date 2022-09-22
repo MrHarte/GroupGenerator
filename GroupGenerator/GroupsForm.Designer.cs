@@ -43,9 +43,9 @@ namespace GroupGenerator
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
             this.formatGroupBox = new System.Windows.Forms.GroupBox();
-            this.firstLastRadioButton = new System.Windows.Forms.RadioButton();
-            this.firstLRadioButton = new System.Windows.Forms.RadioButton();
             this.LastFirstIDRadioButton = new System.Windows.Forms.RadioButton();
+            this.firstLRadioButton = new System.Windows.Forms.RadioButton();
+            this.firstLastRadioButton = new System.Windows.Forms.RadioButton();
             this.formatGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,16 +182,16 @@ namespace GroupGenerator
             this.formatGroupBox.TabStop = false;
             this.formatGroupBox.Text = "Choose a format";
             // 
-            // firstLastRadioButton
+            // LastFirstIDRadioButton
             // 
-            this.firstLastRadioButton.AutoSize = true;
-            this.firstLastRadioButton.Location = new System.Drawing.Point(6, 26);
-            this.firstLastRadioButton.Name = "firstLastRadioButton";
-            this.firstLastRadioButton.Size = new System.Drawing.Size(87, 24);
-            this.firstLastRadioButton.TabIndex = 0;
-            this.firstLastRadioButton.TabStop = true;
-            this.firstLastRadioButton.Text = "First Last";
-            this.firstLastRadioButton.UseVisualStyleBackColor = true;
+            this.LastFirstIDRadioButton.AutoSize = true;
+            this.LastFirstIDRadioButton.Location = new System.Drawing.Point(6, 86);
+            this.LastFirstIDRadioButton.Name = "LastFirstIDRadioButton";
+            this.LastFirstIDRadioButton.Size = new System.Drawing.Size(109, 24);
+            this.LastFirstIDRadioButton.TabIndex = 2;
+            this.LastFirstIDRadioButton.TabStop = true;
+            this.LastFirstIDRadioButton.Text = "Last, First ID";
+            this.LastFirstIDRadioButton.UseVisualStyleBackColor = true;
             // 
             // firstLRadioButton
             // 
@@ -204,16 +204,17 @@ namespace GroupGenerator
             this.firstLRadioButton.Text = "First L.";
             this.firstLRadioButton.UseVisualStyleBackColor = true;
             // 
-            // LastFirstIDRadioButton
+            // firstLastRadioButton
             // 
-            this.LastFirstIDRadioButton.AutoSize = true;
-            this.LastFirstIDRadioButton.Location = new System.Drawing.Point(6, 86);
-            this.LastFirstIDRadioButton.Name = "LastFirstIDRadioButton";
-            this.LastFirstIDRadioButton.Size = new System.Drawing.Size(109, 24);
-            this.LastFirstIDRadioButton.TabIndex = 2;
-            this.LastFirstIDRadioButton.TabStop = true;
-            this.LastFirstIDRadioButton.Text = "Last, First ID";
-            this.LastFirstIDRadioButton.UseVisualStyleBackColor = true;
+            this.firstLastRadioButton.AutoSize = true;
+            this.firstLastRadioButton.Location = new System.Drawing.Point(6, 26);
+            this.firstLastRadioButton.Name = "firstLastRadioButton";
+            this.firstLastRadioButton.Size = new System.Drawing.Size(87, 24);
+            this.firstLastRadioButton.TabIndex = 0;
+            this.firstLastRadioButton.TabStop = true;
+            this.firstLastRadioButton.Text = "First Last";
+            this.firstLastRadioButton.UseVisualStyleBackColor = true;
+            this.firstLastRadioButton.CheckedChanged += new System.EventHandler(this.FirstLastRadioButton_CheckedChanged);
             // 
             // GroupsForm
             // 
