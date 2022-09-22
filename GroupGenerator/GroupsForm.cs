@@ -14,7 +14,7 @@ namespace GroupGenerator
         /// <remarks>
         /// This list is bound to the ListBox displaying the people in the groups form.
         /// </remarks>
-        private BindingList<Person> personList;
+        private BindingList<Student> personList;
 
         /// <summary>
         /// Random number generator for picking.
@@ -28,7 +28,7 @@ namespace GroupGenerator
         public GroupsForm()
         {
             this.InitializeComponent();
-            this.personList = new BindingList<Person>();
+            this.personList = new BindingList<Student>();
             this.groupsListBox.DataSource = this.personList;
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
@@ -68,7 +68,7 @@ namespace GroupGenerator
         /// <param name="e">Additional event arguments.</param>
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
-            this.personList.Clear();
+            /*this.personList.Clear();
             this.personList.Add(new Person("Ted Mosby"));
             this.personList.Add(new Person("Marshall Eriksen"));
             this.personList.Add(new Person("Robin Scherbatsky"));
@@ -89,7 +89,7 @@ namespace GroupGenerator
             this.personList.Add(new Person("Jerome Whittaker"));
             this.personList.Add(new Person("Quinn Garvey"));
             this.personList.Add(new Person("William Zabka"));
-            this.personList.Shuffle();
+            this.personList.Shuffle();*/
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace GroupGenerator
                 numberOfGroups++;
             }
 
-            Person[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
+            Student[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();
@@ -153,7 +153,7 @@ namespace GroupGenerator
                 maxGroupSize++;
             }
 
-            Person[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
+            Student[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();

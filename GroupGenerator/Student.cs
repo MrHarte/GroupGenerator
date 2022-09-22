@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents one student saving their name.
     /// </summary>
-    internal class Student : Person
+    public class Student : Person
     {
         // Properties
 
