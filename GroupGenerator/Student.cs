@@ -28,8 +28,32 @@
         public Student(string studentInfo)
         {
             this.SplitStudent(studentInfo);
+            MessageBox.Show(this.FirstName);
+            this.Name = this.FullNameMode();
+        }
 
-            this.Name = this.FullName();
+        /// <summary>
+        /// Gets the first name of the student.
+        /// </summary>
+        public string FirstName
+        {
+            get { return this.firstName; }
+        }
+
+        /// <summary>
+        /// Gets the last name of the student.
+        /// </summary>
+        public string LastName
+        {
+            get { return this.lastName; }
+        }
+
+        /// <summary>
+        /// Gets the ID number of the student.
+        /// </summary>
+        public string StudentID
+        {
+            get { return this.studentID; }
         }
 
         /// <summary>
@@ -58,27 +82,27 @@
         /// This method concactinates the students information (firstName, first letter of lastName).
         /// </summary>
         /// <returns>Returns the students first name and initial of their last name.</returns>
-        public string FirstName()
+        public string FirstNameMode()
         {
-            return string.Concat(this.firstName, " ", this.lastName.AsSpan(0, 1));
+            return string.Concat(this.FirstName, " ", this.LastName.AsSpan(0, 1));
         }
 
         /// <summary>
         /// This method concactinates the students information (firstName, lastName).
         /// </summary>
         /// <returns>Returns students full name.</returns>
-        public string FullName()
+        public string FullNameMode()
         {
-            return this.firstName + " " + this.lastName;
+            return this.FirstName + " " + this.LastName;
         }
 
         /// <summary>
         /// This method concactinates the students information (firsName, lastName, studentID).
         /// </summary>
         /// <returns>Returns students full name with their student ID.</returns>
-        public string FullNameWithID()
+        public string FullNameWithIDMode()
         {
-            return this.firstName + " " + this.lastName + " " + this.studentID;
+            return this.FirstName + " " + this.LastName + " " + this.StudentID;
         }
     }
 }

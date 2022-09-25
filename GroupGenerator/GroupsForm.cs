@@ -222,7 +222,7 @@ namespace GroupGenerator
 
             foreach (Student student in this.personListClone)
             {
-                student.Name = student.FirstName();
+                student.Name = student.FirstNameMode();
                 this.personList.Add(student);
             }
         }
@@ -241,7 +241,7 @@ namespace GroupGenerator
 
             foreach (Student student in this.personListClone)
             {
-                student.Name = student.FullName();
+                student.Name = student.FullNameMode();
                 this.personList.Add(student);
             }
         }
@@ -257,7 +257,7 @@ namespace GroupGenerator
 
             foreach (Student student in this.personListClone)
             {
-                student.Name = student.FullNameWithID();
+                student.Name = student.FullNameWithIDMode();
                 this.personList.Add(student);
             }
         }
