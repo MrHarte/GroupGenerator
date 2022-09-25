@@ -43,9 +43,9 @@ namespace GroupGenerator
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
             this.displayModeGroupBox = new System.Windows.Forms.GroupBox();
-            this.firstNameRadioButton = new System.Windows.Forms.RadioButton();
-            this.fullNameRadioButton = new System.Windows.Forms.RadioButton();
-            this.fullNameIDRadioButton = new System.Windows.Forms.RadioButton();
+            this.FullNameIDRadioButton = new System.Windows.Forms.RadioButton();
+            this.FullNameRadioButton = new System.Windows.Forms.RadioButton();
+            this.FirstNameRadioButton = new System.Windows.Forms.RadioButton();
             this.displayModeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,9 +172,9 @@ namespace GroupGenerator
             // 
             // displayModeGroupBox
             // 
-            this.displayModeGroupBox.Controls.Add(this.fullNameIDRadioButton);
-            this.displayModeGroupBox.Controls.Add(this.fullNameRadioButton);
-            this.displayModeGroupBox.Controls.Add(this.firstNameRadioButton);
+            this.displayModeGroupBox.Controls.Add(this.FullNameIDRadioButton);
+            this.displayModeGroupBox.Controls.Add(this.FullNameRadioButton);
+            this.displayModeGroupBox.Controls.Add(this.FirstNameRadioButton);
             this.displayModeGroupBox.Location = new System.Drawing.Point(312, 297);
             this.displayModeGroupBox.Name = "displayModeGroupBox";
             this.displayModeGroupBox.Size = new System.Drawing.Size(187, 121);
@@ -182,38 +182,40 @@ namespace GroupGenerator
             this.displayModeGroupBox.TabStop = false;
             this.displayModeGroupBox.Text = "Display Mode";
             // 
-            // firstNameRadioButton
+            // FullNameIDRadioButton
             // 
-            this.firstNameRadioButton.AutoSize = true;
-            this.firstNameRadioButton.Location = new System.Drawing.Point(6, 27);
-            this.firstNameRadioButton.Name = "firstNameRadioButton";
-            this.firstNameRadioButton.Size = new System.Drawing.Size(104, 24);
-            this.firstNameRadioButton.TabIndex = 0;
-            this.firstNameRadioButton.TabStop = true;
-            this.firstNameRadioButton.Text = "First names";
-            this.firstNameRadioButton.UseVisualStyleBackColor = true;
+            this.FullNameIDRadioButton.AutoSize = true;
+            this.FullNameIDRadioButton.Location = new System.Drawing.Point(6, 87);
+            this.FullNameIDRadioButton.Name = "FullNameIDRadioButton";
+            this.FullNameIDRadioButton.Size = new System.Drawing.Size(127, 24);
+            this.FullNameIDRadioButton.TabIndex = 2;
+            this.FullNameIDRadioButton.Text = "Full name + ID";
+            this.FullNameIDRadioButton.UseVisualStyleBackColor = true;
+            this.FullNameIDRadioButton.CheckedChanged += new System.EventHandler(this.FullNameIDRadioButton_CheckedChanged);
             // 
-            // fullNameRadioButton
+            // FullNameRadioButton
             // 
-            this.fullNameRadioButton.AutoSize = true;
-            this.fullNameRadioButton.Location = new System.Drawing.Point(6, 57);
-            this.fullNameRadioButton.Name = "fullNameRadioButton";
-            this.fullNameRadioButton.Size = new System.Drawing.Size(94, 24);
-            this.fullNameRadioButton.TabIndex = 1;
-            this.fullNameRadioButton.TabStop = true;
-            this.fullNameRadioButton.Text = "Full name";
-            this.fullNameRadioButton.UseVisualStyleBackColor = true;
+            this.FullNameRadioButton.AutoSize = true;
+            this.FullNameRadioButton.Checked = true;
+            this.FullNameRadioButton.Location = new System.Drawing.Point(6, 57);
+            this.FullNameRadioButton.Name = "FullNameRadioButton";
+            this.FullNameRadioButton.Size = new System.Drawing.Size(94, 24);
+            this.FullNameRadioButton.TabIndex = 1;
+            this.FullNameRadioButton.TabStop = true;
+            this.FullNameRadioButton.Text = "Full name";
+            this.FullNameRadioButton.UseVisualStyleBackColor = true;
+            this.FullNameRadioButton.CheckedChanged += new System.EventHandler(this.FullNameRadioButton_CheckedChanged);
             // 
-            // fullNameIDRadioButton
+            // FirstNameRadioButton
             // 
-            this.fullNameIDRadioButton.AutoSize = true;
-            this.fullNameIDRadioButton.Location = new System.Drawing.Point(6, 87);
-            this.fullNameIDRadioButton.Name = "fullNameIDRadioButton";
-            this.fullNameIDRadioButton.Size = new System.Drawing.Size(127, 24);
-            this.fullNameIDRadioButton.TabIndex = 2;
-            this.fullNameIDRadioButton.TabStop = true;
-            this.fullNameIDRadioButton.Text = "Full name + ID";
-            this.fullNameIDRadioButton.UseVisualStyleBackColor = true;
+            this.FirstNameRadioButton.AutoSize = true;
+            this.FirstNameRadioButton.Location = new System.Drawing.Point(6, 27);
+            this.FirstNameRadioButton.Name = "FirstNameRadioButton";
+            this.FirstNameRadioButton.Size = new System.Drawing.Size(104, 24);
+            this.FirstNameRadioButton.TabIndex = 0;
+            this.FirstNameRadioButton.Text = "First names";
+            this.FirstNameRadioButton.UseVisualStyleBackColor = true;
+            this.FirstNameRadioButton.CheckedChanged += new System.EventHandler(this.FirstNameRadioButton_CheckedChanged);
             // 
             // GroupsForm
             // 
@@ -258,8 +260,8 @@ namespace GroupGenerator
         private Button pickOneButton;
         private Button loadExampleListButton;
         private GroupBox displayModeGroupBox;
-        private RadioButton fullNameIDRadioButton;
-        private RadioButton fullNameRadioButton;
-        private RadioButton firstNameRadioButton;
+        private RadioButton FullNameIDRadioButton;
+        private RadioButton FullNameRadioButton;
+        private RadioButton FirstNameRadioButton;
     }
 }

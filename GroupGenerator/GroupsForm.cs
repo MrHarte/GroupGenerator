@@ -1,6 +1,7 @@
 namespace GroupGenerator
 {
     using System.ComponentModel;
+    using System.ComponentModel.Design;
     using ExtensionMethods;
 
     /// <summary>
@@ -21,6 +22,8 @@ namespace GroupGenerator
         /// </summary>
         private Random rng;
 
+
+        private List<Person> personListClone;
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupsForm"/> class.
         /// Constructor of the main form.
@@ -32,7 +35,9 @@ namespace GroupGenerator
             this.groupsListBox.DataSource = this.personList;
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
-            // TODO add displaygroupbox to determine which is checked.
+
+            this.personListClone = new List<Person>(this.personList);
+
         }
 
         /// <summary>
@@ -70,17 +75,19 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Student("Ted Evelyn", "Mosby", "(6978639)"));
-            this.personList.Add(new Student("Marshall", "Eriksen", "(6961326)"));
-            this.personList.Add(new Student("Scherbatsky", "Robin", "(6375003)"));
-            this.personList.Add(new Student("Stinson", "Barney", "(6236471)"));
-            this.personList.Add(new Student("Aldrin", "Lily", "(0756495)"));
-            this.personList.Add(new Student("McConnell", "Tracy", "(7936213)"));
-            this.personList.Add(new Student("Singh", "Ranjit", "(3874496)"));
-            this.personList.Add(new Student("Sandy", "Rivers", "(4193406)"));
-            this.personList.Add(new Student("Carl", "MacLaren", "(4193406)"));
-            this.personList.Add(new Student("Eriksen", "Marvin", "(1085283)"));
+            this.personList.Add(new Student("Mosby, Ted Evelyn (6978639)"));
+            this.personList.Add(new Student("Eriksen, Marshall (6961326)"));
+            this.personList.Add(new Student("Scherbatsky, Robin (6375003)"));
+            this.personList.Add(new Student("Stinson, Barney (6236471)"));
+            this.personList.Add(new Student("Aldrin, Lily (0756495)"));
+            this.personList.Add(new Student("McConnell, Tracy (7936213)"));
+            this.personList.Add(new Student("Singh, Ranjit (3874496)"));
+            this.personList.Add(new Student("Rivers, Sandy (4193406)"));
+            this.personList.Add(new Student("Carl, MacLaren (4193406)"));
+            this.personList.Add(new Student("Eriksen, Marvin (1085283)"));
             this.personList.Shuffle();
+
+            this.personListClone = new List<Person>(this.personList);
         }
 
         /// <summary>
@@ -179,6 +186,39 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        private void FirstNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            personList.Clear();
+
+            foreach (Student student in this.personListClone)
+            {
+                student.Name = student.FirstName();
+                this.personList.Add(student);
+            }
+        }
+
+        private void FullNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            personList.Clear();
+
+            foreach (Student student in this.personListClone)
+            {
+                student.Name = student.FullName();
+                this.personList.Add(student);
+            }
+        }
+
+        private void FullNameIDRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            personList.Clear();
+            
+            foreach (Student student in this.personListClone)
+            {
+                student.Name = student.FullNameWithID();
+                this.personList.Add(student);
+            }
         }
     }
 }
