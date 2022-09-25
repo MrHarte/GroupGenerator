@@ -190,29 +190,45 @@ namespace GroupGenerator
             importForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Updates the displayed items in the groupsListBox.
+        /// </summary>
         private void RefreshListBox()
         {
-            // TO DO: Find something that works
-            this.groupsListBox.Hide();
-            this.groupsListBox.Show();
+            this.personList.ResetBindings();
         }
 
+        /// <summary>
+        /// Changes the DisplayMode in the Student class to 1.
+        /// </summary>
+        /// <param name="sender">The radioButton that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void display1RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Student.DisplayMode = 1;
-            RefreshListBox();
+            this.RefreshListBox();
         }
 
+        /// <summary>
+        /// Changes the DisplayMode in the Student class to 2.
+        /// </summary>
+        /// <param name="sender">The radioButton that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void display2RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Student.DisplayMode = 2;
-            RefreshListBox();
+            this.RefreshListBox();
         }
 
+        /// <summary>
+        /// Changes the DisplayMode in the Student class to 3.
+        /// </summary>
+        /// <param name="sender">The radioButton that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void display3RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Student.DisplayMode = 3;
-            RefreshListBox();
+            this.RefreshListBox();
         }
     }
 }

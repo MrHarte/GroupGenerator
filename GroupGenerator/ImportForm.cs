@@ -35,19 +35,12 @@
         }
 
         /// <summary>
-        /// Clears the personList, adds the people from the textBox and closes the form.
+        /// Clears the personList, adds the students from the textBox and closes the form.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            /*this.personList.Clear();
-            foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                this.personList.Add(new Person(personString));
-            }
-            */
-
             this.personList.Clear();
             foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
