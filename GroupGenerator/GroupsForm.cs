@@ -14,7 +14,7 @@ namespace GroupGenerator
         /// <remarks>
         /// This list is bound to the ListBox displaying the people in the groups form.
         /// </remarks>
-        private BindingList<Person> personList;
+        private IList<Person> personList;
 
         /// <summary>
         /// Random number generator for picking.

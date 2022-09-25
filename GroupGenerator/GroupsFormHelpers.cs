@@ -43,7 +43,7 @@
         /// <param name="maxGroupSize">Maximum size of groups.</param>
         /// <returns>Person Array containing the groups.</returns>
         /// <exception cref="ArgumentException">If the numberOfGroups or maxGroupSize do not make sense.</exception>
-        public static Person[,] SplitIntoGroups(Collection<Person> people, int numberOfGroups, int maxGroupSize)
+        public static Person[,] SplitIntoGroups(IList<Person> people, int numberOfGroups, int maxGroupSize)
         {
             if (numberOfGroups <= 0 && maxGroupSize <= 0)
             {

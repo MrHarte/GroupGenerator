@@ -10,14 +10,14 @@
         /// <summary>
         /// List of people when the form was instantiated.
         /// </summary>
-        private BindingList<Person> personList;
+        private IList<Person> personList;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportForm"/> class.
         /// Constructor of the form adding the list of people to the textBox.
         /// </summary>
         /// <param name="personList">Existing list of people.</param>
-        public ImportForm(BindingList<Person> personList)
+        public ImportForm(IList<Person> personList)
         {
             this.InitializeComponent();
             this.personList = personList;
