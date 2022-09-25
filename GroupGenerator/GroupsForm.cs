@@ -1,7 +1,10 @@
 namespace GroupGenerator
 {
+    using System;
     using System.ComponentModel;
+    using System.Xml.Linq;
     using ExtensionMethods;
+    using Microsoft.VisualBasic;
 
     /// <summary>
     /// Main form class.
@@ -14,7 +17,7 @@ namespace GroupGenerator
         /// <remarks>
         /// This list is bound to the ListBox displaying the people in the groups form.
         /// </remarks>
-        private BindingList<Person> personList;
+        private BindingList<Student> personList;
 
         /// <summary>
         /// Random number generator for picking.
@@ -28,7 +31,7 @@ namespace GroupGenerator
         public GroupsForm()
         {
             this.InitializeComponent();
-            this.personList = new BindingList<Person>();
+            this.personList = new BindingList<Student>();
             this.groupsListBox.DataSource = this.personList;
             this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
@@ -63,34 +66,42 @@ namespace GroupGenerator
         }
 
         /// <summary>
+        /// This method adds all the demanded students to the list
+        /// </summary>
+        public void displayNormalNames()
+        {
+            this.personList.Clear();
+            this.personList.Add(new Student("Ted Mosby",123));
+            this.personList.Add(new Student("Marshall Eriksen",321));
+            this.personList.Add(new Student("Robin Scherbatsky",223));
+            this.personList.Add(new Student("Barney Stinson",543));
+            this.personList.Add(new Student("Lily Aldrin",666));
+            this.personList.Add(new Student("Tracy McConnell",111));
+            this.personList.Add(new Student("Ranjit Singh"));
+            this.personList.Add(new Student("Sandy Rivers"));
+            this.personList.Add(new Student("Carl MacLaren"));
+            this.personList.Add(new Student("Marvin Eriksen",542));
+            this.personList.Add(new Student("Judy Eriksen"));
+            this.personList.Add(new Student("Gary Blauman"));
+            this.personList.Add(new Student("Loretta Stinson"));
+            this.personList.Add(new Student("Stella Zinman"));
+            this.personList.Add(new Student("Randy Wharmpess"));
+            this.personList.Add(new Student("Tony Grafanello"));
+            this.personList.Add(new Student("Zoey Pierson"));
+            this.personList.Add(new Student("Jerome Whittaker"));
+            this.personList.Add(new Student("Quinn Garvey"));
+            this.personList.Add(new Student("William Zabka"));
+            this.personList.Shuffle();
+        }
+
+        /// <summary>
         /// Loads an example list of people into the listBox.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
-            this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby"));
-            this.personList.Add(new Person("Marshall Eriksen"));
-            this.personList.Add(new Person("Robin Scherbatsky"));
-            this.personList.Add(new Person("Barney Stinson"));
-            this.personList.Add(new Person("Lily Aldrin"));
-            this.personList.Add(new Person("Tracy McConnell"));
-            this.personList.Add(new Person("Ranjit Singh"));
-            this.personList.Add(new Person("Sandy Rivers"));
-            this.personList.Add(new Person("Carl MacLaren"));
-            this.personList.Add(new Person("Marvin Eriksen"));
-            this.personList.Add(new Person("Judy Eriksen"));
-            this.personList.Add(new Person("Gary Blauman"));
-            this.personList.Add(new Person("Loretta Stinson"));
-            this.personList.Add(new Person("Stella Zinman"));
-            this.personList.Add(new Person("Randy Wharmpess"));
-            this.personList.Add(new Person("Tony Grafanello"));
-            this.personList.Add(new Person("Zoey Pierson"));
-            this.personList.Add(new Person("Jerome Whittaker"));
-            this.personList.Add(new Person("Quinn Garvey"));
-            this.personList.Add(new Person("William Zabka"));
-            this.personList.Shuffle();
+            displayNormalNames();
         }
 
         /// <summary>
@@ -114,7 +125,7 @@ namespace GroupGenerator
                 numberOfGroups++;
             }
 
-            Person[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
+            Student[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();
@@ -154,7 +165,7 @@ namespace GroupGenerator
                 maxGroupSize++;
             }
 
-            Person[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
+            Student[,] groups = GroupsFormHelpers.SplitIntoGroups(this.personList, numberOfGroups, maxGroupSize);
 
             DisplayGroupsForm displayGroupsForm = new DisplayGroupsForm(groups);
             displayGroupsForm.ShowDialog();
@@ -189,6 +200,56 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+
+        /// <summary>
+        /// This button display the first name with the first letter of their last name after
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void privacy1Button_Click(object sender, EventArgs e)
+        {
+            string[] nameArray;
+            string privateName;
+            for (int x = 0; x < 6; x++)
+            { 
+                for (int i = 0; i < this.personList.Count; i++)
+                {
+                    nameArray = this.personList[i].ToString().Split(' ');
+                    privateName = nameArray[0] + " " + nameArray[1][0] + ".";
+                    this.personList.RemoveAt(i);
+                    this.personList.Add(new Student(privateName));
+                }
+            }
+        }
+
+        /// <summary>
+        /// This button displays the standard output of the student list which is just their names
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void privacy2Button_Click(object sender, EventArgs e)
+        {
+            displayNormalNames();
+        }
+
+        /// <summary>
+        /// This button will display the full name of the student with the student number at the end
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void privacy3Button_Click(object sender, EventArgs e)
+        {
+            displayNormalNames();
+
+            for (int x = 0; x < 6; x++)
+            {
+                for (int i = 0; i < this.personList.Count; i++)
+                {
+                    this.personList.Add(new Student(this.personList[i].NameWNumber));
+                }
+            }
         }
     }
 }
