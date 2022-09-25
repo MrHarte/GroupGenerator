@@ -41,15 +41,22 @@
         /// <param name="e">Additional event arguments.</param>
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            this.personList.Clear();
-            foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            if (this.importBox.Text == String.Empty || (this.importBox.Text.Contains(',') && this.importBox.Text.Contains('(')))
             {
-                this.personList.Add(new Student(personString));
+                this.personList.Clear();
+                foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    this.personList.Add(new Student(personString));
+                }
+
+                this.DialogResult = DialogResult.OK;
+
+                this.Close();
             }
-
-            this.DialogResult = DialogResult.OK;
-
-            this.Close();
+            else
+            {
+                MessageBox.Show("Invalid import format. \nExpected format: family name, sur name (student ID)");
+            }
         }
 
         /// <summary>
