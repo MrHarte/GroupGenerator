@@ -47,6 +47,8 @@
                 this.personList.Add(new Student(personString));
             }
 
+            this.DialogResult = DialogResult.OK;
+
             this.Close();
         }
 
@@ -57,6 +59,8 @@
         /// <param name="e">Additional event arguments.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
+
             this.Close();
         }
     }

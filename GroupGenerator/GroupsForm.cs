@@ -1,7 +1,6 @@
 namespace GroupGenerator
 {
     using System.ComponentModel;
-    using System.ComponentModel.Design;
     using ExtensionMethods;
 
     /// <summary>
@@ -22,8 +21,11 @@ namespace GroupGenerator
         /// </summary>
         private Random rng;
 
+        /// <summary>
+        /// List to hold a copy of the personList.
+        /// </summary>
+        private List<Student> personListClone;
 
-        private List<Person> personListClone;
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupsForm"/> class.
         /// Constructor of the main form.
@@ -32,12 +34,10 @@ namespace GroupGenerator
         {
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
+            this.personListClone = new List<Student>();
             this.groupsListBox.DataSource = this.personList;
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
-
-            this.personListClone = new List<Person>(this.personList);
-
         }
 
         /// <summary>
@@ -70,6 +70,9 @@ namespace GroupGenerator
         /// <summary>
         /// Loads an example list of people into the listBox.
         /// </summary>
+        /// <remarks>
+        /// Creates a deep copy of the personList.
+        /// </remarks>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
         private void LoadExampleListButton_Click(object sender, EventArgs e)
@@ -87,7 +90,12 @@ namespace GroupGenerator
             this.personList.Add(new Student("Eriksen, Marvin (1085283)"));
             this.personList.Shuffle();
 
-            this.personListClone = new List<Person>(this.personList);
+            this.personListClone.Clear();
+
+            foreach (Student student in this.personList)
+            {
+                this.personListClone.Add(student);
+            }
         }
 
         /// <summary>
@@ -175,6 +183,8 @@ namespace GroupGenerator
         /// </summary>
         /// <remarks>
         /// Opened at the start for initial import.
+        /// <br></br>
+        /// Creates a deep copy of the personList.
         /// </remarks>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
@@ -185,12 +195,30 @@ namespace GroupGenerator
              * Modeless forms are displayed with the Show() function.
              * However, we want a modal form:
              */
-            importForm.ShowDialog();
+            if (importForm.ShowDialog() == DialogResult.OK)
+            {
+                if (this.personListClone.Count != 0)
+                {
+                    this.personListClone.Clear();
+                }
+
+                foreach (Student student in this.personList)
+                {
+                    this.personListClone.Add(student);
+                }
+
+                this.FullNameRadioButton.Checked = true;
+            }
         }
 
+        /// <summary>
+        /// Changes the display mode of the personList names to first name + last name initial.
+        /// </summary>
+        /// <param name="sender">The radio button was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void FirstNameRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            personList.Clear();
+            this.personList.Clear();
 
             foreach (Student student in this.personListClone)
             {
@@ -199,9 +227,17 @@ namespace GroupGenerator
             }
         }
 
+        /// <summary>
+        /// Changes the display mode of the personList names to first name + last name.
+        /// </summary>
+        /// <remarks>
+        /// This display mode is selected by default.
+        /// </remarks>
+        /// <param name="sender">The radio button was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void FullNameRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            personList.Clear();
+            this.personList.Clear();
 
             foreach (Student student in this.personListClone)
             {
@@ -210,10 +246,15 @@ namespace GroupGenerator
             }
         }
 
+        /// <summary>
+        /// Changes the display mode of the personList to first name + last name + student ID.
+        /// </summary>
+        /// <param name="sender">The radio button was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void FullNameIDRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            personList.Clear();
-            
+            this.personList.Clear();
+
             foreach (Student student in this.personListClone)
             {
                 student.Name = student.FullNameWithID();
