@@ -41,7 +41,7 @@
         /// <param name="e">Additional event arguments.</param>
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            if (this.importBox.Text == String.Empty || (this.importBox.Text.Contains(',') && this.importBox.Text.Contains('(')))
+            if (this.importBox.Text == string.Empty || (this.importBox.Text.Contains(',') && this.importBox.Text.Contains('(')))
             {
                 this.personList.Clear();
                 foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
