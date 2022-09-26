@@ -9,7 +9,7 @@ namespace GroupGenerator
     /// <summary>
     /// Student class will adapt how the student names will show in the program.
     /// </summary>
-    internal class Student : Person
+    public class Student : Person
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Student"/> class.
