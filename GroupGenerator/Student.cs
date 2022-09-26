@@ -11,31 +11,67 @@ namespace GroupGenerator
     /// </summary>
     internal class Student : Person
     {
-        public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        private static int DisplayNumber = 1;
-
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Student"/> class.
+        /// Constructor to transform Person.Name instances in FirstName, LastName and ID.
+        /// </summary>
+        /// <param name="input">This is the input from the Person Class, from the Student.Name to be precise.</param>
         public Student(string input)
         {
             input = input.Trim();
+            string[] splitInput;
+
+            splitInput = input.Split(' ');
+            LastName = splitInput[0];
+            FirstName = splitInput[1];
+
+            // If the user does not enter a ID number with the student, it does not save one
+            if (splitInput.Length > 2)
+            {
+                Id = splitInput[2];
+            }
         }
 
-        //Methods
+        /// <summary>
+        /// This is to create an Student Id to save.
+        /// </summary>
+        public string Id { get; set; }
 
-        //Sudent (name: string)
-        //Student (FirstName, LastName)
+        /// <summary>
+        /// This is to create a FirstName to save.
+        /// </summary>
+        public string FirstName { get; set; }
 
+        /// <summary>
+        /// This is to create a LastName to save.
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// This is to register the way Student instances will be displaied.
+        /// </summary>
+
+        public static int DisplayNumber = 1;
+
+        /// <summary>
+        /// This Method is to control the display of the available options.
+        /// </summary>
+        /// <returns>This method returns</returns>
         public override string ToString()
         {
-            if (DisplayNumber == 1)
+            // This is to change the value of the return depending on the DisplayNumber variable
+            if (DisplayNumber == 2)
             {
-
+                return this.FirstName + " " + this.LastName;
             }
-            return this.Name;
+            if (DisplayNumber == 3)
+            {
+                return this.FirstName + " " + this.LastName + " " + this.Id;
+            }
+            else
+            {
+                return this.FirstName + ", " + this.LastName[0];
+            }
         }
-
     }
 }

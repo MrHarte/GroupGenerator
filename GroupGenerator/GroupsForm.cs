@@ -72,15 +72,14 @@ namespace GroupGenerator
             this.personList.Clear();
             this.personList.Add(new Student("Mosby, Ted Evelyn (6978639)"));
             this.personList.Add(new Student("Eriksen, Marshall (6961326)"));
-            this.personList.Add(new Student("Scherbatsky,Robin (6375003)"));
-            this.personList.Add(new Student("Stinson,Barney (6236471)"));
+            this.personList.Add(new Student("Scherbatsky, Robin (6375003)"));
+            this.personList.Add(new Student("Stinson, Barney (6236471)"));
             this.personList.Add(new Student("Aldrin, Lily (0756495)"));
-            this.personList.Add(new Student("McConnell,Tracy (7936213)"));
-            this.personList.Add(new Student("Singh,Ranjit (3874496)"));
-            this.personList.Add(new Student("Rivers,Sandy (4193406)"));
+            this.personList.Add(new Student("McConnell, Tracy (7936213)"));
+            this.personList.Add(new Student("Singh, Ranjit (3874496)"));
+            this.personList.Add(new Student("Rivers, Sandy (4193406)"));
             this.personList.Add(new Student("MacLaren, Carl (5965287)"));
-            this.personList.Add(new Student("Eriksen,Marvin(1085283)"));
-            this.personList.Add(new Student("Judy Eriksen (123124423)"));
+            this.personList.Add(new Student("Eriksen, Marvin (1085283)"));
             this.personList.Shuffle();
         }
 
@@ -180,6 +179,48 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Refreshes the data in the groupListBox.
+        /// </summary>
+        private void RefreshGroupsListBox()
+        {
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
+        /// When the radioButton is active, it sets the default display.
+        /// </summary>
+        /// <param name="sender">The Radio button is clicked.</param>
+        /// <param name="e">Additional Event arguments.</param>
+        private void layout1RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayNumber = 1;
+            this.RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// When the radioButton is active, it sets the display to setting 2.
+        /// </summary>
+        /// <param name="sender">The Radio button is clicked.</param>
+        /// <param name="e">Additional Event arguments.</param>
+        private void layout2RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayNumber = 2;
+            this.RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// When the radioButton is active, it sets the display to setting 3.
+        /// </summary>
+        /// <param name="sender">The Radio button is clicked.</param>
+        /// <param name="e">Additional Event arguments.</param>
+        private void layout3RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Student.DisplayNumber = 3;
+            this.RefreshGroupsListBox();
         }
     }
 }

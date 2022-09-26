@@ -192,6 +192,7 @@ namespace GroupGenerator
             this.layout3RadioButton.TabStop = true;
             this.layout3RadioButton.Text = "First, Last, (ID)";
             this.layout3RadioButton.UseVisualStyleBackColor = true;
+            this.layout3RadioButton.CheckedChanged += new System.EventHandler(this.layout3RadioButton_CheckedChanged);
             // 
             // layout2RadioButton
             // 
@@ -203,6 +204,7 @@ namespace GroupGenerator
             this.layout2RadioButton.TabStop = true;
             this.layout2RadioButton.Text = "First Name, Last Name";
             this.layout2RadioButton.UseVisualStyleBackColor = true;
+            this.layout2RadioButton.CheckedChanged += new System.EventHandler(this.layout2RadioButton_CheckedChanged);
             // 
             // layout1RadioButton
             // 
@@ -214,6 +216,7 @@ namespace GroupGenerator
             this.layout1RadioButton.TabStop = true;
             this.layout1RadioButton.Text = "First Name, Initial";
             this.layout1RadioButton.UseVisualStyleBackColor = true;
+            this.layout1RadioButton.CheckedChanged += new System.EventHandler(this.layout1RadioButton_CheckedChanged);
             // 
             // GroupsForm
             // 
@@ -236,7 +239,6 @@ namespace GroupGenerator
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GroupsForm";
             this.Text = "Group Generator";
-            //this.Load += new System.EventHandler(this.GroupsForm_Load);
             this.layoutGroupBox.ResumeLayout(false);
             this.layoutGroupBox.PerformLayout();
             this.ResumeLayout(false);

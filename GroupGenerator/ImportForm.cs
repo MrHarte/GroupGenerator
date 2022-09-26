@@ -42,9 +42,9 @@
         private void ImportButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (string studentString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                this.personList.Add(new Person(personString));
+                this.personList.Add(new Student(studentString));
             }
 
             this.Close();
