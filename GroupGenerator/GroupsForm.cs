@@ -69,26 +69,16 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby"));
-            this.personList.Add(new Person("Marshall Eriksen"));
-            this.personList.Add(new Person("Robin Scherbatsky"));
-            this.personList.Add(new Person("Barney Stinson"));
-            this.personList.Add(new Person("Lily Aldrin"));
-            this.personList.Add(new Person("Tracy McConnell"));
-            this.personList.Add(new Person("Ranjit Singh"));
-            this.personList.Add(new Person("Sandy Rivers"));
-            this.personList.Add(new Person("Carl MacLaren"));
-            this.personList.Add(new Person("Marvin Eriksen"));
-            this.personList.Add(new Person("Judy Eriksen"));
-            this.personList.Add(new Person("Gary Blauman"));
-            this.personList.Add(new Person("Loretta Stinson"));
-            this.personList.Add(new Person("Stella Zinman"));
-            this.personList.Add(new Person("Randy Wharmpess"));
-            this.personList.Add(new Person("Tony Grafanello"));
-            this.personList.Add(new Person("Zoey Pierson"));
-            this.personList.Add(new Person("Jerome Whittaker"));
-            this.personList.Add(new Person("Quinn Garvey"));
-            this.personList.Add(new Person("William Zabka"));
+            this.personList.Add(new Person("Eriksen,Marvin (1085283)"));
+            this.personList.Add(new Person("MacLaren,Carl (5965287)"));
+            this.personList.Add(new Person("Rivers,Sandy (4193406)"));
+            this.personList.Add(new Person("Singh,Ranjit (3874496)"));
+            this.personList.Add(new Person("McConnell,Tracy (7936213)"));
+            this.personList.Add(new Person("Aldrin, Lily (0756495)"));
+            this.personList.Add(new Person("Stinson,Barney (6236471)"));
+            this.personList.Add(new Person("Scherbatsky,Robin (6375003)"));
+            this.personList.Add(new Person("Eriksen, Marshall (6961326)"));
+            this.personList.Add(new Person("Mosby, TedEvelyn (6978639)"));
             this.personList.Shuffle();
         }
 
