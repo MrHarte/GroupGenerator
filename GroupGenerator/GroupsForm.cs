@@ -30,7 +30,8 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
+            //Need to delete line 34
+            //this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
@@ -70,26 +71,26 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby"));
-            this.personList.Add(new Person("Marshall Eriksen"));
-            this.personList.Add(new Person("Robin Scherbatsky"));
-            this.personList.Add(new Person("Barney Stinson"));
-            this.personList.Add(new Person("Lily Aldrin"));
-            this.personList.Add(new Person("Tracy McConnell"));
-            this.personList.Add(new Person("Ranjit Singh"));
-            this.personList.Add(new Person("Sandy Rivers"));
-            this.personList.Add(new Person("Carl MacLaren"));
-            this.personList.Add(new Person("Marvin Eriksen"));
-            this.personList.Add(new Person("Judy Eriksen"));
-            this.personList.Add(new Person("Gary Blauman"));
-            this.personList.Add(new Person("Loretta Stinson"));
-            this.personList.Add(new Person("Stella Zinman"));
-            this.personList.Add(new Person("Randy Wharmpess"));
-            this.personList.Add(new Person("Tony Grafanello"));
-            this.personList.Add(new Person("Zoey Pierson"));
-            this.personList.Add(new Person("Jerome Whittaker"));
-            this.personList.Add(new Person("Quinn Garvey"));
-            this.personList.Add(new Person("William Zabka"));
+            this.personList.Add(new Person("Ted Mosby (524755)"));
+            this.personList.Add(new Person("Marshall Eriksen (952524)"));
+            this.personList.Add(new Person("Robin Scherbatsky (152364)"));
+            this.personList.Add(new Person("Barney Stinson (785427)"));
+            this.personList.Add(new Person("Lily Aldrin (235415)"));
+            this.personList.Add(new Person("Tracy McConnell (885524)"));
+            this.personList.Add(new Person("Ranjit Singh (555651)"));
+            this.personList.Add(new Person("Sandy Rivers (356821)"));
+            this.personList.Add(new Person("Carl MacLaren (952191)"));
+            this.personList.Add(new Person("Marvin Eriksen (678412)"));
+            this.personList.Add(new Person("Judy Eriksen (115239)"));
+            this.personList.Add(new Person("Gary Blauman (885464)"));
+            this.personList.Add(new Person("Loretta Stinson (852456)"));
+            this.personList.Add(new Person("Stella Zinman (984652)"));
+            this.personList.Add(new Person("Randy Wharmpess (649841)"));
+            this.personList.Add(new Person("Tony Grafanello (951753)"));
+            this.personList.Add(new Person("Zoey Pierson (193567)"));
+            this.personList.Add(new Person("Jerome Whittaker (784162)"));
+            this.personList.Add(new Person("Quinn Garvey (368715)"));
+            this.personList.Add(new Person("William Zabka (614688)"));
             this.personList.Shuffle();
         }
 
