@@ -30,7 +30,6 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
@@ -190,5 +189,18 @@ namespace GroupGenerator
              */
             importForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Refreshes the data in the groupsListBox.
+        /// </summary>
+        private void RefreshGroupsListBox()
+        {
+
+            this.groupsListBox.DataSource = null;
+
+            this.groupsListBox.DataSource = this.personList;
+
+        }
+
     }
 }
