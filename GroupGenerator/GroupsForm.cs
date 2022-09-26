@@ -8,6 +8,8 @@ namespace GroupGenerator
     /// </summary>
     public partial class GroupsForm : Form
     {
+
+
         /// <summary>
         /// List of people used to make groups.
         /// </summary>
@@ -25,12 +27,12 @@ namespace GroupGenerator
         /// Initializes a new instance of the <see cref="GroupsForm"/> class.
         /// Constructor of the main form.
         /// </summary>
+        ///
         public GroupsForm()
         {
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
@@ -70,28 +72,29 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby"));
-            this.personList.Add(new Person("Marshall Eriksen"));
-            this.personList.Add(new Person("Robin Scherbatsky"));
-            this.personList.Add(new Person("Barney Stinson"));
-            this.personList.Add(new Person("Lily Aldrin"));
-            this.personList.Add(new Person("Tracy McConnell"));
-            this.personList.Add(new Person("Ranjit Singh"));
-            this.personList.Add(new Person("Sandy Rivers"));
-            this.personList.Add(new Person("Carl MacLaren"));
-            this.personList.Add(new Person("Marvin Eriksen"));
-            this.personList.Add(new Person("Judy Eriksen"));
-            this.personList.Add(new Person("Gary Blauman"));
-            this.personList.Add(new Person("Loretta Stinson"));
-            this.personList.Add(new Person("Stella Zinman"));
-            this.personList.Add(new Person("Randy Wharmpess"));
-            this.personList.Add(new Person("Tony Grafanello"));
-            this.personList.Add(new Person("Zoey Pierson"));
-            this.personList.Add(new Person("Jerome Whittaker"));
-            this.personList.Add(new Person("Quinn Garvey"));
-            this.personList.Add(new Person("William Zabka"));
+            this.personList.Add(new Student("Mosby, Ted Evelyn (6978639)"));
+            this.personList.Add(new Student("Eriksen, Marshall (6961326)"));
+            this.personList.Add(new Student("Scherbatsky, Robin (6375003)"));
+            this.personList.Add(new Student("Stinson, Barney (6236471)"));
+            this.personList.Add(new Student("Aldrin, Lily (0756495)"));
+            this.personList.Add(new Student("McConnell, Tracy (7936213)"));
+            this.personList.Add(new Student("Singh, Ranjit (3874496)"));
+            this.personList.Add(new Student("Rivers, Sandy (4193406)"));
+            this.personList.Add(new Student("MacLaren, Carl (5965287)"));
+            this.personList.Add(new Student("Eriksen, Marvin (1085283)"));
+
+            // this.personList.Add(new Student("Judy Eriksen"));
+            // this.personList.Add(new Student("Gary Blauman"));
+            // this.personList.Add(new Student("Loretta Stinson"));
+            // this.personList.Add(new Student("Stella Zinman"));
+            // this.personList.Add(new Student("Randy Wharmpess"));
+            // this.personList.Add(new Student("Tony Grafanello"));
+            // this.personList.Add(new Student("Zoey Pierson"));
+            // this.personList.Add(new Student("Jerome Whittaker"));
+            // this.personList.Add(new Student("Quinn Garvey"));
+            // this.personList.Add(new Student("William Zabka"));
             this.personList.Shuffle();
-        }
+         }
 
         /// <summary>
         /// Splits the people list into groups of a specified size and displays them.
@@ -189,6 +192,42 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Designates the value of the static property _displayMode to 1 and refreshes the values inside of the list so the changes on the property take effect on the ListBox.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void DefaultDisplayButton_Click(object sender, EventArgs e)
+        {
+            Student.displayMode = 1;
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
+        /// Designates the value of the static property _displayMode to 2 and refreshes the values inside of the list so the changes on the property take effect on the ListBox.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void FullNameDisplayButton_Click(object sender, EventArgs e)
+        {
+            Student.displayMode = 2;
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
+        /// Designates the value of the static property _displayMode to 3 and refreshes the values inside of the list so the changes on the property take effect on the ListBox.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void DisplayAbbreviatedButton_Click(object sender, EventArgs e)
+        {
+            Student.displayMode = 3;
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
         }
     }
 }

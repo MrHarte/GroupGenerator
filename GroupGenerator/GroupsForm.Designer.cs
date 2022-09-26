@@ -42,6 +42,10 @@ namespace GroupGenerator
             this.editListButton = new System.Windows.Forms.Button();
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
+            this.DefaultDisplayButton = new System.Windows.Forms.Button();
+            this.FullNameDisplayButton = new System.Windows.Forms.Button();
+            this.DisplayAbbreviatedButton = new System.Windows.Forms.Button();
+            this.displayGroupBox = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -156,11 +160,53 @@ namespace GroupGenerator
             this.loadExampleListButton.UseVisualStyleBackColor = true;
             this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
+            // DefaultDisplayButton
+            // 
+            this.DefaultDisplayButton.Location = new System.Drawing.Point(274, 260);
+            this.DefaultDisplayButton.Name = "DefaultDisplayButton";
+            this.DefaultDisplayButton.Size = new System.Drawing.Size(164, 23);
+            this.DefaultDisplayButton.TabIndex = 12;
+            this.DefaultDisplayButton.Text = "Default";
+            this.DefaultDisplayButton.UseVisualStyleBackColor = true;
+            this.DefaultDisplayButton.Click += new System.EventHandler(this.DefaultDisplayButton_Click);
+            // 
+            // FullNameDisplayButton
+            // 
+            this.FullNameDisplayButton.Location = new System.Drawing.Point(274, 289);
+            this.FullNameDisplayButton.Name = "FullNameDisplayButton";
+            this.FullNameDisplayButton.Size = new System.Drawing.Size(164, 23);
+            this.FullNameDisplayButton.TabIndex = 13;
+            this.FullNameDisplayButton.Text = "Full Name";
+            this.FullNameDisplayButton.UseVisualStyleBackColor = true;
+            this.FullNameDisplayButton.Click += new System.EventHandler(this.FullNameDisplayButton_Click);
+            // 
+            // DisplayAbbreviatedButton
+            // 
+            this.DisplayAbbreviatedButton.Location = new System.Drawing.Point(274, 318);
+            this.DisplayAbbreviatedButton.Name = "DisplayAbbreviatedButton";
+            this.DisplayAbbreviatedButton.Size = new System.Drawing.Size(164, 23);
+            this.DisplayAbbreviatedButton.TabIndex = 14;
+            this.DisplayAbbreviatedButton.Text = "Abbreviated";
+            this.DisplayAbbreviatedButton.UseVisualStyleBackColor = true;
+            this.DisplayAbbreviatedButton.Click += new System.EventHandler(this.DisplayAbbreviatedButton_Click);
+            // 
+            // displayGroupBox
+            // 
+            this.displayGroupBox.Location = new System.Drawing.Point(268, 238);
+            this.displayGroupBox.Name = "displayGroupBox";
+            this.displayGroupBox.Size = new System.Drawing.Size(178, 113);
+            this.displayGroupBox.TabIndex = 15;
+            this.displayGroupBox.TabStop = false;
+            this.displayGroupBox.Text = "Select Display";
+            // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 450);
+            this.Controls.Add(this.DisplayAbbreviatedButton);
+            this.Controls.Add(this.FullNameDisplayButton);
+            this.Controls.Add(this.DefaultDisplayButton);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
@@ -173,6 +219,7 @@ namespace GroupGenerator
             this.Controls.Add(this.groupSizeBox);
             this.Controls.Add(this.groupsOfLabel);
             this.Controls.Add(this.groupsListBox);
+            this.Controls.Add(this.displayGroupBox);
             this.Name = "GroupsForm";
             this.Text = "Group Generator";
             this.ResumeLayout(false);
@@ -194,5 +241,9 @@ namespace GroupGenerator
         private Button editListButton;
         private Button pickOneButton;
         private Button loadExampleListButton;
+        private Button DefaultDisplayButton;
+        private Button FullNameDisplayButton;
+        private Button DisplayAbbreviatedButton;
+        private GroupBox displayGroupBox;
     }
 }

@@ -44,7 +44,9 @@
             this.personList.Clear();
             foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                this.personList.Add(new Person(personString));
+                // Instead of adding a Person to the list this time the program will be adding a Student which has different properties.
+               // this.personList.Add(new Person(personString));
+                this.personList.Add(new Student(personString));
             }
 
             this.Close();
