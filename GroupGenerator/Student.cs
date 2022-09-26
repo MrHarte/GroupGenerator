@@ -7,7 +7,7 @@
         /// <summary>
         /// the displayMode field holds an integer that defines which kind of display will be shown in the listBox.
         /// </summary>
-        public static int displayMode = 1;
+        private static int displayMode = 1;
 
         /// <summary>
         /// the lastName field will hold the last name of the Student.
@@ -44,6 +44,16 @@
         }
 
         /// <summary>
+        /// Gets or sets the value that the displayMode attribute has been asigned to and returns it as an Integer.
+        /// </summary>
+        public static int DisplayMode
+        {
+            get { return displayMode; }
+            set { displayMode = value; }
+        }
+
+
+        /// <summary>
         /// Gets the students first names and their last name and returns a string holding those values.
         /// </summary>
         public override string Name
@@ -75,15 +85,6 @@
                     return this.firstNames + " " + this.lastName.Substring(0, 1) + ".";
                 }
             }
-        }
-
-        /// <summary>
-        /// Gets or sets the value that the displayMode attribute has been asigned to and returns it as an Integer.
-        /// </summary>
-        public int DisplayMode
-        {
-            get { return displayMode; }
-            set { displayMode = value; }
         }
 
         /// <summary>

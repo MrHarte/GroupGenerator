@@ -195,15 +195,23 @@ namespace GroupGenerator
         }
 
         /// <summary>
+        /// This method refreshes the list to update the values in the listbox.
+        /// </summary>
+        private void RefreshList()
+        {
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
         /// Designates the value of the static property _displayMode to 1 and refreshes the values inside of the list so the changes on the property take effect on the ListBox.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
         private void DefaultDisplayButton_Click(object sender, EventArgs e)
         {
-            Student.displayMode = 1;
-            this.groupsListBox.DataSource = null;
-            this.groupsListBox.DataSource = this.personList;
+            Student.DisplayMode = 1;
+            this.RefreshList();
         }
 
         /// <summary>
@@ -213,9 +221,8 @@ namespace GroupGenerator
         /// <param name="e">Additional event arguments.</param>
         private void FullNameDisplayButton_Click(object sender, EventArgs e)
         {
-            Student.displayMode = 2;
-            this.groupsListBox.DataSource = null;
-            this.groupsListBox.DataSource = this.personList;
+            Student.DisplayMode = 2;
+            this.RefreshList();
         }
 
         /// <summary>
@@ -225,9 +232,8 @@ namespace GroupGenerator
         /// <param name="e">Additional event arguments.</param>
         private void DisplayAbbreviatedButton_Click(object sender, EventArgs e)
         {
-            Student.displayMode = 3;
-            this.groupsListBox.DataSource = null;
-            this.groupsListBox.DataSource = this.personList;
+            Student.DisplayMode = 3;
+            this.RefreshList();
         }
     }
 }
