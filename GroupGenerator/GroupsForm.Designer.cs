@@ -187,10 +187,10 @@ namespace GroupGenerator
             this.LastFirstIDRadioButton.AutoSize = true;
             this.LastFirstIDRadioButton.Location = new System.Drawing.Point(6, 86);
             this.LastFirstIDRadioButton.Name = "LastFirstIDRadioButton";
-            this.LastFirstIDRadioButton.Size = new System.Drawing.Size(109, 24);
+            this.LastFirstIDRadioButton.Size = new System.Drawing.Size(170, 24);
             this.LastFirstIDRadioButton.TabIndex = 2;
             this.LastFirstIDRadioButton.TabStop = true;
-            this.LastFirstIDRadioButton.Text = "Last, First ID";
+            this.LastFirstIDRadioButton.Text = "Last, First (StudentID)";
             this.LastFirstIDRadioButton.UseVisualStyleBackColor = true;
             this.LastFirstIDRadioButton.CheckedChanged += new System.EventHandler(this.LastFirstIDRadioButton_CheckedChanged);
             // 
