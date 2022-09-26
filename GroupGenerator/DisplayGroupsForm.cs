@@ -10,6 +10,7 @@
         /// Constructor of the form displaying the groups in the listBox.
         /// </summary>
         /// <param name="groups">Groups to be displayed in a 2D array.</param>
+       
         public DisplayGroupsForm(Person[,] groups)
         {
             this.InitializeComponent();
@@ -38,6 +39,7 @@
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
     }
 }
