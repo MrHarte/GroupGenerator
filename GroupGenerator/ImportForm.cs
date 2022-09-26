@@ -10,17 +10,17 @@
         /// <summary>
         /// List of people when the form was instantiated.
         /// </summary>
-        private BindingList<Person> personList;
+        private BindingList<Student> _personList;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportForm"/> class.
         /// Constructor of the form adding the list of people to the textBox.
         /// </summary>
         /// <param name="personList">Existing list of people.</param>
-        public ImportForm(BindingList<Person> personList)
+        public ImportForm(BindingList<Student> personList)
         {
             this.InitializeComponent();
-            this.personList = personList;
+            this._personList = personList;
 
             // Add existing list to the text box on separate lines
             this.importBox.Text = string.Empty;
@@ -41,10 +41,10 @@
         /// <param name="e">Additional event arguments.</param>
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            this.personList.Clear();
+            this._personList.Clear();
             foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                this.personList.Add(new Person(personString));
+                this._personList.Add(new Student(personString));
             }
 
             this.Close();

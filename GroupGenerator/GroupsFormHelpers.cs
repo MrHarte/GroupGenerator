@@ -43,7 +43,7 @@
         /// <param name="maxGroupSize">Maximum size of groups.</param>
         /// <returns>Person Array containing the groups.</returns>
         /// <exception cref="ArgumentException">If the numberOfGroups or maxGroupSize do not make sense.</exception>
-        public static Person[,] SplitIntoGroups(Collection<Person> people, int numberOfGroups, int maxGroupSize)
+        public static Student[,] SplitIntoGroups(Collection<Student> people, int numberOfGroups, int maxGroupSize)
         {
             if (numberOfGroups <= 0 && maxGroupSize <= 0)
             {
@@ -55,7 +55,7 @@
                 MessageBox.Show("Lists not long enough for people collection!");
             }
 
-            Person[,] groups = new Person[numberOfGroups, maxGroupSize];
+            Student[,] groups = new Student[numberOfGroups, maxGroupSize];
 
             // Go through people in group
             for (int personNr = 0; personNr < maxGroupSize; personNr++)

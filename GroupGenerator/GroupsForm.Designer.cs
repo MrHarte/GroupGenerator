@@ -42,6 +42,11 @@ namespace GroupGenerator
             this.editListButton = new System.Windows.Forms.Button();
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lastnameFirstnameIdNumberRadioButton = new System.Windows.Forms.RadioButton();
+            this.firstnameLastnameRadioButton = new System.Windows.Forms.RadioButton();
+            this.firstnameLastnameAbbreviatedRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -156,11 +161,60 @@ namespace GroupGenerator
             this.loadExampleListButton.UseVisualStyleBackColor = true;
             this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lastnameFirstnameIdNumberRadioButton);
+            this.groupBox1.Controls.Add(this.firstnameLastnameRadioButton);
+            this.groupBox1.Controls.Add(this.firstnameLastnameAbbreviatedRadioButton);
+            this.groupBox1.Location = new System.Drawing.Point(274, 234);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(164, 112);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Display Mode";
+            // 
+            // lastnameFirstnameIdNumberRadioButton
+            // 
+            this.lastnameFirstnameIdNumberRadioButton.AutoSize = true;
+            this.lastnameFirstnameIdNumberRadioButton.Location = new System.Drawing.Point(6, 82);
+            this.lastnameFirstnameIdNumberRadioButton.Name = "lastnameFirstnameIdNumberRadioButton";
+            this.lastnameFirstnameIdNumberRadioButton.Size = new System.Drawing.Size(144, 19);
+            this.lastnameFirstnameIdNumberRadioButton.TabIndex = 2;
+            this.lastnameFirstnameIdNumberRadioButton.TabStop = true;
+            this.lastnameFirstnameIdNumberRadioButton.Text = "Mosby, Ted Evelyn (ID)";
+            this.lastnameFirstnameIdNumberRadioButton.UseVisualStyleBackColor = true;
+            this.lastnameFirstnameIdNumberRadioButton.CheckedChanged += new System.EventHandler(this.lastnameFirstnameIdNumberRadioButton_CheckedChanged);
+            // 
+            // firstnameLastnameRadioButton
+            // 
+            this.firstnameLastnameRadioButton.AutoSize = true;
+            this.firstnameLastnameRadioButton.Location = new System.Drawing.Point(6, 57);
+            this.firstnameLastnameRadioButton.Name = "firstnameLastnameRadioButton";
+            this.firstnameLastnameRadioButton.Size = new System.Drawing.Size(119, 19);
+            this.firstnameLastnameRadioButton.TabIndex = 1;
+            this.firstnameLastnameRadioButton.TabStop = true;
+            this.firstnameLastnameRadioButton.Text = "Ted Evelyn Mosby";
+            this.firstnameLastnameRadioButton.UseVisualStyleBackColor = true;
+            this.firstnameLastnameRadioButton.CheckedChanged += new System.EventHandler(this.firstnameLastnameRadioButton_CheckedChanged);
+            // 
+            // firstnameLastnameAbbreviatedRadioButton
+            // 
+            this.firstnameLastnameAbbreviatedRadioButton.AutoSize = true;
+            this.firstnameLastnameAbbreviatedRadioButton.Location = new System.Drawing.Point(6, 32);
+            this.firstnameLastnameAbbreviatedRadioButton.Name = "firstnameLastnameAbbreviatedRadioButton";
+            this.firstnameLastnameAbbreviatedRadioButton.Size = new System.Drawing.Size(60, 19);
+            this.firstnameLastnameAbbreviatedRadioButton.TabIndex = 0;
+            this.firstnameLastnameAbbreviatedRadioButton.TabStop = true;
+            this.firstnameLastnameAbbreviatedRadioButton.Text = "Ted M.";
+            this.firstnameLastnameAbbreviatedRadioButton.UseVisualStyleBackColor = true;
+            this.firstnameLastnameAbbreviatedRadioButton.CheckedChanged += new System.EventHandler(this.firstnameLastnameAbbreviatedRadioButton_CheckedChanged);
+            // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
@@ -175,6 +229,8 @@ namespace GroupGenerator
             this.Controls.Add(this.groupsListBox);
             this.Name = "GroupsForm";
             this.Text = "Group Generator";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +250,9 @@ namespace GroupGenerator
         private Button editListButton;
         private Button pickOneButton;
         private Button loadExampleListButton;
+        private GroupBox groupBox1;
+        private RadioButton lastnameFirstnameIdNumberRadioButton;
+        private RadioButton firstnameLastnameRadioButton;
+        private RadioButton firstnameLastnameAbbreviatedRadioButton;
     }
 }
