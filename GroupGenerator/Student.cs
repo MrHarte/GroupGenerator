@@ -18,8 +18,8 @@ namespace GroupGenerator
             firstName = _firstName;
             lastName = _lastName;
             studentNumber = _studentNumber;
-            _isChecked = false;
-            students=new List<Student>();
+           
+           
             
        }
         public string StudentNumber { get; set; }
@@ -28,18 +28,17 @@ namespace GroupGenerator
         public string FirstName { get; set; }
         public string LastName { get; set; }    
 
-        public bool IsChecked { get; set; }
-        public List<Student> Students { get { return students; } }
-
+       
         public string FirstMode(string _firstName, string _lastName, string _studentNumber)
         {
-            Name = _lastName + ", " + _firstName + " (" + _studentNumber + ")";
-            return Name;
+            return (_lastName+", "   + _firstName + " ("+ _studentNumber+")" );
+            
         }
-        public bool CheckedMode()
+        public string SecondMode(string _firstName, string _lastName, string _studentNumber)
         {
-           _isChecked= true;
-            return _isChecked;
+           
+            return ( _firstName + " "+ _lastName[0]+".");
+
         }
 
     }
