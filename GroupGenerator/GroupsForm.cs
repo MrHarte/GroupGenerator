@@ -15,6 +15,7 @@ namespace GroupGenerator
         /// This list is bound to the ListBox displaying the people in the groups form.
         /// </remarks>
         private BindingList<Student> personList;
+        private List<Student> studentList;
 
         /// <summary>
         /// Random number generator for picking.
@@ -190,12 +191,105 @@ namespace GroupGenerator
             importForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Checks which radioButton was clicked.
+        /// </summary>
+        /// <param name="sender">The Radio button that was either clicked previously or just clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void FirstLastRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (Person person in this.personList)
+            if (this.firstLastRadioButton.Checked == true)
             {
-                Student student = (Student)person;
+                this.ChangeFormat(1);
             }
+            else if (this.firstLRadioButton.Checked == true)
+            {
+                this.ChangeFormat(2);
+            }
+            else if (this.LastFirstIDRadioButton.Checked == true)
+            {
+                this.ChangeFormat(3);
+            }
+        }
+
+        /// <summary>
+        /// Checks which radioButton was clicked.
+        /// </summary>
+        /// <param name="sender">The Radio button that was either clicked previously or just clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void FirstLRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.firstLastRadioButton.Checked == true)
+            {
+                this.ChangeFormat(1);
+            }
+            else if (this.firstLRadioButton.Checked == true)
+            {
+                this.ChangeFormat(2);
+            }
+            else if (this.LastFirstIDRadioButton.Checked == true)
+            {
+                this.ChangeFormat(3);
+            }
+        }
+
+        /// <summary>
+        /// Checks which radioButton was clicked.
+        /// </summary>
+        /// <param name="sender">The Radio button that was either clicked previously or just clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void LastFirstIDRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.firstLastRadioButton.Checked == true)
+            {
+                this.ChangeFormat(1);
+            }
+            else if (this.firstLRadioButton.Checked == true)
+            {
+                this.ChangeFormat(2);
+            }
+            else if (this.LastFirstIDRadioButton.Checked == true)
+            {
+                this.ChangeFormat(3);
+            }
+        }
+
+        /// <summary>
+        /// Changes the format of the of the people shown in the list group box
+        /// </summary>
+        /// <param name="format">An int that holds the format that was chosen</param>
+        private void ChangeFormat(int format)
+        {
+            this.studentList = new List<Student>();
+
+            foreach (Student student in this.personList)
+            {
+                switch (format)
+                {
+                    case 1:
+                        student.Name = String.Format("{0} {1}", student.FirstName, student.LastName);
+                        this.studentList.Add(student);
+                        break;
+                    case 2:
+                        student.Name = String.Format("{0} {1}.", student.FirstName, student.LastName.Substring(0, 1));
+                        this.studentList.Add(student);
+                        break;
+                    case 3:
+                        student.Name = String.Format("{0}, {1} ({2})", student.LastName, student.FirstName, student.StudentID);
+                        this.studentList.Add(student);
+                        break;
+                }
+            }
+            this.RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// Refreshes the groupsListBox
+        /// </summary>
+        private void RefreshGroupsListBox()
+        {
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.studentList;
         }
     }
 }

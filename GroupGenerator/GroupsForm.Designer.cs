@@ -192,6 +192,7 @@ namespace GroupGenerator
             this.LastFirstIDRadioButton.TabStop = true;
             this.LastFirstIDRadioButton.Text = "Last, First ID";
             this.LastFirstIDRadioButton.UseVisualStyleBackColor = true;
+            this.LastFirstIDRadioButton.CheckedChanged += new System.EventHandler(this.LastFirstIDRadioButton_CheckedChanged);
             // 
             // firstLRadioButton
             // 
@@ -203,6 +204,7 @@ namespace GroupGenerator
             this.firstLRadioButton.TabStop = true;
             this.firstLRadioButton.Text = "First L.";
             this.firstLRadioButton.UseVisualStyleBackColor = true;
+            this.firstLRadioButton.CheckedChanged += new System.EventHandler(this.FirstLRadioButton_CheckedChanged);
             // 
             // firstLastRadioButton
             // 
