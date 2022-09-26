@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GroupGenerator
 {
+    /// <summary>
+    /// This class holds the information of student.
+    /// </summary>
     internal class Student : Person
     {
         /// <summary>
@@ -32,7 +35,7 @@ namespace GroupGenerator
 
 
         /// <summary>
-        /// This is
+        /// This is the constructor which splits the name of a student.
         /// </summary>
         /// <param name="name">Holds the name input</param>
         public Student(string name)
