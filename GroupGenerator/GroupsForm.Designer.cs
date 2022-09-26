@@ -211,9 +211,9 @@ namespace GroupGenerator
             this.FirstNameRadioButton.AutoSize = true;
             this.FirstNameRadioButton.Location = new System.Drawing.Point(6, 27);
             this.FirstNameRadioButton.Name = "FirstNameRadioButton";
-            this.FirstNameRadioButton.Size = new System.Drawing.Size(104, 24);
+            this.FirstNameRadioButton.Size = new System.Drawing.Size(158, 24);
             this.FirstNameRadioButton.TabIndex = 0;
-            this.FirstNameRadioButton.Text = "First names";
+            this.FirstNameRadioButton.Text = "First + Family Initial";
             this.FirstNameRadioButton.UseVisualStyleBackColor = true;
             this.FirstNameRadioButton.CheckedChanged += new System.EventHandler(this.FirstNameRadioButton_CheckedChanged);
             // 

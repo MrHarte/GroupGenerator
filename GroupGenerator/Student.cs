@@ -84,7 +84,7 @@
         /// <returns>Returns the students first name and initial of their last name.</returns>
         public string FirstNameMode()
         {
-            return string.Concat(this.FirstName, " ", this.LastName.AsSpan(0, 1));
+            return string.Concat(this.FirstName, " ", this.LastName.Substring(0, 1) + ".");
         }
 
         /// <summary>
@@ -102,7 +102,7 @@
         /// <returns>Returns students full name with their student ID.</returns>
         public string FullNameWithIDMode()
         {
-            return this.FirstName + " " + this.LastName + " " + this.StudentID;
+            return this.LastName + ", " + this.FirstName + " " + this.StudentID;
         }
     }
 }
