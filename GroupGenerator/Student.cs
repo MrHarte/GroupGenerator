@@ -50,12 +50,8 @@
         public Student(string name)
         {
             string[] fullName;
-            fullName = Name.Split(Name.Split(',', '(', ')').ToString());
-            Name = FirstName[0] + " " + LastName[1];
-            FirstName = fullName[0];
-            LastName = fullName[1];
-            Id = fullName[2];
-
+            fullName = name.Split(',', '(', ')');
+            name = fullName[0] + " " + fullName[1] + " " + fullName[2];
         }
 
         /// <summary>
