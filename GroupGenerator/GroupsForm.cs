@@ -179,5 +179,57 @@ namespace GroupGenerator
              */
             importForm.ShowDialog();
         }
+
+        /// <summary>
+        /// Refreshes the data in the groupsListBox.
+        /// </summary>
+        private void RefreshGroupsListBox()
+
+        {
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
+        /// uses switchcase to sort information by first name, last name Student Number.
+        /// </summary>
+        /// <remarks>
+        /// Incomplete.
+        /// </remarks>
+        /// <param name="sender">the button is clicked.</param>
+        /// <param name="e">additonal object arguments.</param>
+        private void FNameLNameID_CheckedChanged(object sender, EventArgs e)
+        {
+            // clears listBox
+            RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// uses switchcase to sort information by first name, last name.
+        /// </summary>
+        /// <remarks>
+        /// Incomplete.
+        /// </remarks>
+        /// <param name="sender">the button is clicked.</param>
+        /// <param name="e">additonal object arguments.</param>
+        private void FNameLName_CheckedChanged(object sender, EventArgs e)
+        {
+            // clears Listbox
+            RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// uses switchcase to sort information by first name, last name shortened.
+        /// </summary>
+        /// <remarks>
+        /// Incomplete.
+        /// </remarks>
+        /// <param name="sender">the button is clicked.</param>
+        /// <param name="e">additonal object arguments.</param>
+        private void FNameL_CheckedChanged(object sender, EventArgs e)
+        {
+            // clears Listbox
+            RefreshGroupsListBox();
+        }
     }
 }

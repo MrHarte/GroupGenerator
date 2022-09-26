@@ -7,36 +7,72 @@ using System.Threading.Tasks;
 
 namespace GroupGenerator
 {
-    internal class Student : Person
+    /// <summary>
+    /// Student Class Is used to define the properties of one Student.
+    /// </summary>
+    /// <remarks>
+    /// Inherits Name from Person class to create the basis of a Student.
+    /// </remarks>
+    public class Student : Person
     {
-        public Student(string name, string firstName, string lastName, string studentNumber, int displayMode)
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Student"/> class.
+        /// non-paramaterized constructors for Student class.
+        /// </summary>
+        /// <param name="firstName">Students first name.</param>
+        /// <param name="lastName">Students last name.</param>
+        /// <param name="studentNumber">Students Id Number.</param>
+        /// <param name="displayMode">Display mode for showing information in a specific order.</param>
+        public Student(string firstName, string lastName, string studentNumber, int displayMode)
         {
-            Name = name;
             FirstName = firstName;
             LastName = lastName;
             StudentNumber = studentNumber;
             DisplayMode = displayMode;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Student"/> class.
+        /// Paramaterized Constructors to hold default values for properties.
+        /// </summary>
+        /// <remarks>
+        /// Every String Value, FirstName, LastName, StudentNumber, hold empty strings when empty.
+        /// Displaymode holds a 0 when empty because it is an Interger Value.
+        /// </remarks>
         public Student()
         {
-            Name = string.Empty;
             FirstName = string.Empty;
             LastName = string.Empty;
             StudentNumber = string.Empty;
             DisplayMode = 0;
         }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string StudentNumber { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Display mode for the way information is ordered.
+        /// </summary>
         public static int DisplayMode { get; set; }
 
-        public override string Name { get; set; }
+        /// <summary>
+        /// Gets or Sets First Name of Student.
+        /// </summary>
+        public string FirstName { get; set; }
 
+        /// <summary>
+        ///  Gets or Sets Last Name of Student.
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Student ID number.
+        /// </summary>
+        public string StudentNumber { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Student"/> class.
+        /// Takes information from TextList in ImportForm and splits it into class properties.
+        /// </summary>
+        /// <param name="all">Information recived from importform TextList i.e. Names. </param>
         public Student(string all = "")
         {
             char[] delim = { ',', '(', ')' };
@@ -45,46 +81,44 @@ namespace GroupGenerator
             LastName = tokens[0].ToString();
             FirstName = tokens[1].ToString();
             StudentNumber = tokens[2].ToString();
-
-
         }
 
+        /// <summary>
+        /// Takes Information from Student method and turns it into a string.
+        /// </summary>
+        /// <remarks>
+        /// Incomplete.
+        /// </remarks>
+        /// <returns> Returns entire name in a string format.
+        /// </returns>
         public override string ToString()
         {
-            return this.Name;
+            
         }
 
-        //seems to lock up on first entry
-        // how to unfreeze hold in variable?
-        //display modes 
-        //list?
-
-        /*public DisplayMode1()
+        /// <summary>
+        /// Switch case to switch between different display mode strings depending on selected display mode.
+        /// </summary>
+        /// <remarks>
+        /// Incomplete Missing final case for First name and Last name shortened.
+        /// </remarks>
+        public DisplayMode()
         {
+            switch (DisplayMode)
+            {
+                case 0:
+                    Name = LastName + " " + FirstName;
+                    break;
+                case 1:
+                    Name = FirstName + " " + LastName + " " + StudentNumber;
+                    break;
+                default: 
+                    Console.WriteLine("Nothing");
+                    break;
 
+                    return Name; 
+
+            }
         }
-        public DisplayMode2()
-        {
-
-        }
-        public DisplayMode3()
-        {
-
-        }*/
-
-
-        //public string Student()
-        //{
-        //Person person = new Person();
-
-        // return Name;
-        // }
-
-        //CREATE ARRAY USE SWITCH CASE FOR RADIO BUTTONS
-        // take data from listbox and add it to class properties
-
-        // QUESTIONS TO ASK SPLITTING TEXT INTO CLASS PROPS
-        // () FOR STUDENT NUMBERS??
-        // put a focus on a first radio button
     }
 }

@@ -42,6 +42,11 @@ namespace GroupGenerator
             this.editListButton = new System.Windows.Forms.Button();
             this.pickOneButton = new System.Windows.Forms.Button();
             this.loadExampleListButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FNameLNameID = new System.Windows.Forms.RadioButton();
+            this.FNameLName = new System.Windows.Forms.RadioButton();
+            this.FNameL = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupsListBox
@@ -156,11 +161,61 @@ namespace GroupGenerator
             this.loadExampleListButton.UseVisualStyleBackColor = true;
             this.loadExampleListButton.Click += new System.EventHandler(this.LoadExampleListButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.FNameL);
+            this.groupBox1.Controls.Add(this.FNameLNameID);
+            this.groupBox1.Controls.Add(this.FNameLName);
+            this.groupBox1.Location = new System.Drawing.Point(282, 234);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(149, 129);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sorting";
+            // 
+            // FNameLNameID
+            // 
+            this.FNameLNameID.AutoSize = true;
+            this.FNameLNameID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FNameLNameID.Location = new System.Drawing.Point(12, 47);
+            this.FNameLNameID.Name = "FNameLNameID";
+            this.FNameLNameID.Size = new System.Drawing.Size(124, 19);
+            this.FNameLNameID.TabIndex = 1;
+            this.FNameLNameID.TabStop = true;
+            this.FNameLNameID.Text = "F Name L Name ID";
+            this.FNameLNameID.UseVisualStyleBackColor = true;
+            this.FNameLNameID.CheckedChanged += new System.EventHandler(this.FNameLNameID_CheckedChanged);
+            // 
+            // FNameLName
+            // 
+            this.FNameLName.AutoSize = true;
+            this.FNameLName.Location = new System.Drawing.Point(12, 22);
+            this.FNameLName.Name = "FNameLName";
+            this.FNameLName.Size = new System.Drawing.Size(110, 19);
+            this.FNameLName.TabIndex = 0;
+            this.FNameLName.TabStop = true;
+            this.FNameLName.Text = "F Name L Name";
+            this.FNameLName.UseVisualStyleBackColor = true;
+            this.FNameLName.CheckedChanged += new System.EventHandler(this.FNameLName_CheckedChanged);
+            // 
+            // FNameL
+            // 
+            this.FNameL.AutoSize = true;
+            this.FNameL.Location = new System.Drawing.Point(13, 76);
+            this.FNameL.Name = "FNameL";
+            this.FNameL.Size = new System.Drawing.Size(78, 19);
+            this.FNameL.TabIndex = 2;
+            this.FNameL.TabStop = true;
+            this.FNameL.Text = "F Name L.";
+            this.FNameL.UseVisualStyleBackColor = true;
+            this.FNameL.CheckedChanged += new System.EventHandler(this.FNameL_CheckedChanged);
+            // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.loadExampleListButton);
             this.Controls.Add(this.pickOneButton);
             this.Controls.Add(this.editListButton);
@@ -175,6 +230,8 @@ namespace GroupGenerator
             this.Controls.Add(this.groupsListBox);
             this.Name = "GroupsForm";
             this.Text = "Group Generator";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +251,9 @@ namespace GroupGenerator
         private Button editListButton;
         private Button pickOneButton;
         private Button loadExampleListButton;
+        private GroupBox groupBox1;
+        private RadioButton FNameLNameID;
+        private RadioButton FNameLName;
+        private RadioButton FNameL;
     }
 }
