@@ -8,8 +8,6 @@ namespace GroupGenerator
     /// </summary>
     public partial class GroupsForm : Form
     {
-
-
         /// <summary>
         /// List of people used to make groups.
         /// </summary>
