@@ -15,7 +15,8 @@ namespace GroupGenerator
         /// This list is bound to the ListBox displaying the people in the groups form.
         /// </remarks>
         private BindingList<Person> personList;
-
+        
+       
         /// <summary>
         /// Random number generator for picking.
         /// </summary>
@@ -30,7 +31,8 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
+
+
             this.rng = new Random();
             this.EditListButton_Click(this, new EventArgs());
         }
@@ -90,6 +92,7 @@ namespace GroupGenerator
             this.personList.Add(new Person("Jerome Whittaker"));
             this.personList.Add(new Person("Quinn Garvey"));
             this.personList.Add(new Person("William Zabka"));
+
             this.personList.Shuffle();
         }
 
@@ -189,6 +192,77 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        /// <summary
+        /// Show the radio buttons when clicked on the formatName Button.
+        /// </summary>
+        /// <param name="sender"> formatName button.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void formatNameButton_Click(object sender, EventArgs e)
+        {
+            this.formattingGroupBox.Visible = true;
+            this.mode1RadioButton.Visible = true;
+            this.mode2RadioButton.Visible = true;
+            this.mode3RadioButton.Visible = true;
+        }
+
+        /// <summary>
+        /// Display the formatted Name when Mode1 radio button is clicked
+        /// </summary>
+        /// <param name="sender"> Mode1 Radio Button.</param>
+        /// <param name="e"> Additional event arguments.</param>
+        private void Mode1RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.mode1RadioButton.Checked)
+            {
+                for (int i = 0; i < this.personList.Count; i++)
+                {
+                    Student studenti = new Student(this.personList[i].Name);
+                    studenti.Name = studenti.FirstMode(studenti.FirstName, studenti.LastName, studenti.StudentNumber);
+                    this.personList[i] = new Student(studenti.Name);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Display the second formate when the radio button is checked.
+        /// </summary>
+        /// <param name="sender">Mode2 Radio button.</param>
+        /// <param name="e">Additional event arguments.</param>
+
+        private void Mode22RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.mode2RadioButton.Checked)
+            {
+                for (int i = 0; i <this.personList.Count; i++)
+                {
+                    Student studenti = new Student(this.personList[i].Name);
+                    MessageBox.Show(studenti.LastName);
+                    studenti.Name = studenti.SecondMode(studenti.FirstName, studenti.LastName);
+                    MessageBox.Show(studenti.Name);
+
+                    this.personList[i] = new Student(studenti.Name);
+                }
+            }
+        }
+
+        /// <summary>
+        ///  Display the second formate when the radio button is checked.
+        /// </summary>
+        /// <param name="sender">Mode 3 radio button</param>
+        /// <param name="e">Additional event arguments</param>
+        private void mode3RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.mode3RadioButton.Checked)
+            {
+                for (int i = 0; i < this.personList.Count; i++)
+                {
+                    Student studenti = new Student(this.personList[i].Name);
+                    studenti.Name = studenti.ThirdMode(studenti.FirstName, studenti.LastName,studenti.StudentNumber);
+                    this.personList[i] = new Student(studenti.Name);
+                }
+            }
         }
     }
 }
