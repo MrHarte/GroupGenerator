@@ -194,6 +194,7 @@ namespace GroupGenerator
             this.studentNumberRadioButton.TabIndex = 2;
             this.studentNumberRadioButton.Text = "Student Number";
             this.studentNumberRadioButton.UseVisualStyleBackColor = true;
+            this.studentNumberRadioButton.CheckedChanged += new System.EventHandler(this.studentNumberRadioButton_CheckedChanged);
             // 
             // lastNameRadioButton
             // 
@@ -205,6 +206,7 @@ namespace GroupGenerator
             this.lastNameRadioButton.TabIndex = 1;
             this.lastNameRadioButton.Text = "Last Name";
             this.lastNameRadioButton.UseVisualStyleBackColor = true;
+            this.lastNameRadioButton.CheckedChanged += new System.EventHandler(this.lastNameRadioButton_CheckedChanged);
             // 
             // firstNameRadioButton
             // 
@@ -218,6 +220,7 @@ namespace GroupGenerator
             this.firstNameRadioButton.TabStop = true;
             this.firstNameRadioButton.Text = "First Name";
             this.firstNameRadioButton.UseVisualStyleBackColor = true;
+            this.firstNameRadioButton.CheckedChanged += new System.EventHandler(this.firstNameRadioButton_CheckedChanged);
             // 
             // GroupsForm
             // 

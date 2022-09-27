@@ -1,6 +1,7 @@
 namespace GroupGenerator
 {
     using System.ComponentModel;
+    using System.Web;
     using ExtensionMethods;
 
     /// <summary>
@@ -71,26 +72,26 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby (524755)"));
-            this.personList.Add(new Person("Marshall Eriksen (952524)"));
-            this.personList.Add(new Person("Robin Scherbatsky (152364)"));
-            this.personList.Add(new Person("Barney Stinson (785427)"));
-            this.personList.Add(new Person("Lily Aldrin (235415)"));
-            this.personList.Add(new Person("Tracy McConnell (885524)"));
-            this.personList.Add(new Person("Ranjit Singh (555651)"));
-            this.personList.Add(new Person("Sandy Rivers (356821)"));
-            this.personList.Add(new Person("Carl MacLaren (952191)"));
-            this.personList.Add(new Person("Marvin Eriksen (678412)"));
-            this.personList.Add(new Person("Judy Eriksen (115239)"));
-            this.personList.Add(new Person("Gary Blauman (885464)"));
-            this.personList.Add(new Person("Loretta Stinson (852456)"));
-            this.personList.Add(new Person("Stella Zinman (984652)"));
-            this.personList.Add(new Person("Randy Wharmpess (649841)"));
-            this.personList.Add(new Person("Tony Grafanello (951753)"));
-            this.personList.Add(new Person("Zoey Pierson (193567)"));
-            this.personList.Add(new Person("Jerome Whittaker (784162)"));
-            this.personList.Add(new Person("Quinn Garvey (368715)"));
-            this.personList.Add(new Person("William Zabka (614688)"));
+            this.personList.Add(new Person("Ted, Mosby (524755)"));
+            this.personList.Add(new Person("Marshall, Eriksen (952524)"));
+            this.personList.Add(new Person("Robin, Scherbatsky (152364)"));
+            this.personList.Add(new Person("Barney, Stinson (785427)"));
+            this.personList.Add(new Person("Lily, Aldrin (235415)"));
+            this.personList.Add(new Person("Tracy, McConnell (885524)"));
+            this.personList.Add(new Person("Ranjit, Singh (555651)"));
+            this.personList.Add(new Person("Sandy, Rivers (356821)"));
+            this.personList.Add(new Person("Carl, MacLaren (952191)"));
+            this.personList.Add(new Person("Marvin, Eriksen (678412)"));
+            this.personList.Add(new Person("Judy, Eriksen (115239)"));
+            this.personList.Add(new Person("Gary, Blauman (885464)"));
+            this.personList.Add(new Person("Loretta, Stinson (852456)"));
+            this.personList.Add(new Person("Stella, Zinman (984652)"));
+            this.personList.Add(new Person("Randy, Wharmpess (649841)"));
+            this.personList.Add(new Person("Tony, Grafanello (951753)"));
+            this.personList.Add(new Person("Zoey, Pierson (193567)"));
+            this.personList.Add(new Person("Jerome, Whittaker (784162)"));
+            this.personList.Add(new Person("Quinn, Garvey (368715)"));
+            this.personList.Add(new Person("William, Zabka (614688)"));
             this.personList.Shuffle();
         }
 
@@ -190,6 +191,84 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Radio button to display the first Name and the abriviated last Name.
+        /// </summary>
+        /// <remarks>
+        /// Not completed
+        /// </remarks>
+        /// <param name="sender">The radio button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void firstNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (firstNameRadioButton.Checked == true) {
+                Student.DisplayFirstName(); 
+            }
+           
+        }
+
+        /// <summary>
+        /// Radio button to display the first Name and the last Name.
+        /// </summary>
+        /// <remarks>
+        /// Not completed.
+        /// </remarks>
+        /// <param name="sender">The radio button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void lastNameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lastNameRadioButton.Checked == true)
+            {
+                Student.DisplayLastName();
+            }
+        }
+
+        /// <summary>
+        /// Radio button to display the first Name, the last Name, and the student Number.
+        /// </summary>
+        /// <remarks>
+        /// Not completed.
+        /// </remarks>
+        /// <param name="sender">The radio button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void studentNumberRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (studentNumberRadioButton.Checked == true)
+            {
+                Student.DisplayID();
+            }
+        }
+        /// <summary>
+        /// Create a new Student object base on the person class.
+        /// </summary>
+        /// <remark>
+        /// Goes through a loop of all person object in the person list in order to split it into an array and retreiving relevent informations.
+        /// </remark>
+        /// <param name="name">The full student information.</param>
+        /// <param name="firstName">The first name of the student.</param>
+        /// <param name="lastName">The last Name of the student.</param>
+        /// <param name="lastNameAbriviation">The first letter of the last name.</param>
+        /// <paran name="id">The ID number of the Student.</paran>
+        public void sendStudentlist()
+        {
+            string[] name = {};
+            string firstName = "";
+            string lastName = "";
+            string lastNameAbriviation = "";
+            string id = "";
+
+            for (int i = 0; i < this.personList.Count; i++)
+            { 
+                name = personList[i].Name.Split(new string[] { " ", ",", "(", ")" }, StringSplitOptions.None);
+                firstName = name[0];
+                lastName = name[1];
+                lastNameAbriviation = lastName.Substring(0, 1) + ".";
+                id = name[2];
+
+                Student student = new Student(firstName, lastName, lastNameAbriviation, id);
+            }
         }
     }
 }
