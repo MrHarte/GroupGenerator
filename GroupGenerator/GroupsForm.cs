@@ -1,6 +1,8 @@
 namespace GroupGenerator
 {
     using System.ComponentModel;
+    using System.ComponentModel.Design;
+    using System.Drawing.Text;
     using ExtensionMethods;
 
     /// <summary>
@@ -30,8 +32,8 @@ namespace GroupGenerator
             this.InitializeComponent();
             this.personList = new BindingList<Person>();
             this.groupsListBox.DataSource = this.personList;
-            this.groupsListBox.DisplayMember = "Name";
             this.rng = new Random();
+            this.displayModeOneRadioButton.Checked = true;
             this.EditListButton_Click(this, new EventArgs());
         }
 
@@ -70,26 +72,26 @@ namespace GroupGenerator
         private void LoadExampleListButton_Click(object sender, EventArgs e)
         {
             this.personList.Clear();
-            this.personList.Add(new Person("Ted Mosby"));
-            this.personList.Add(new Person("Marshall Eriksen"));
-            this.personList.Add(new Person("Robin Scherbatsky"));
-            this.personList.Add(new Person("Barney Stinson"));
-            this.personList.Add(new Person("Lily Aldrin"));
-            this.personList.Add(new Person("Tracy McConnell"));
-            this.personList.Add(new Person("Ranjit Singh"));
-            this.personList.Add(new Person("Sandy Rivers"));
-            this.personList.Add(new Person("Carl MacLaren"));
-            this.personList.Add(new Person("Marvin Eriksen"));
-            this.personList.Add(new Person("Judy Eriksen"));
-            this.personList.Add(new Person("Gary Blauman"));
-            this.personList.Add(new Person("Loretta Stinson"));
-            this.personList.Add(new Person("Stella Zinman"));
-            this.personList.Add(new Person("Randy Wharmpess"));
-            this.personList.Add(new Person("Tony Grafanello"));
-            this.personList.Add(new Person("Zoey Pierson"));
-            this.personList.Add(new Person("Jerome Whittaker"));
-            this.personList.Add(new Person("Quinn Garvey"));
-            this.personList.Add(new Person("William Zabka"));
+            this.personList.Add(new Student("Ted, Mosby (6978639)"));
+            this.personList.Add(new Student("Marshall, Eriksen (6961326)"));
+            this.personList.Add(new Student("Robin, Scherbatsky (6375003)"));
+            this.personList.Add(new Student("Barney, Stinson (6236471)"));
+            this.personList.Add(new Student("Lily, Aldrin (0756495)"));
+            this.personList.Add(new Student("Tracy, McConnell (7936213)"));
+            this.personList.Add(new Student("Ranjit, Singh (3874496)"));
+            this.personList.Add(new Student("Sandy, Rivers (4193406)"));
+            this.personList.Add(new Student("Carl, MacLaren (2965287)"));
+            this.personList.Add(new Student("Marvin, Eriksen (1085283)"));
+            this.personList.Add(new Student("Judy, Eriksen (8177263)"));
+            this.personList.Add(new Student("Gary, Blauman (2935123)"));
+            this.personList.Add(new Student("Loretta, Stinson (0573661)"));
+            this.personList.Add(new Student("Stella, Zinman (6227188)"));
+            this.personList.Add(new Student("Randy, Wharmpess (1029002)"));
+            this.personList.Add(new Student("Tony, Grafanello (7676278)"));
+            this.personList.Add(new Student("Zoey, Pierson (9120366)"));
+            this.personList.Add(new Student("Jerome, Whittaker (9203043)"));
+            this.personList.Add(new Student("Quinn, Garvey (9872536)"));
+            this.personList.Add(new Student("William, Zabka (2819372)"));
             this.personList.Shuffle();
         }
 
@@ -189,6 +191,66 @@ namespace GroupGenerator
              * However, we want a modal form:
              */
             importForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Empty the file and allow to keep adding more names.
+        /// </summary>
+        private void RefreshGroupsListBox()
+        {
+            this.groupsListBox.DataSource = null;
+            this.groupsListBox.DataSource = this.personList;
+        }
+
+        /// <summary>
+        /// Change the DisplayMode depending on the ifs that will change the order of the names.
+        /// </summary>
+        public void ChangeDisplay()
+        {
+            if(displayModeOneRadioButton.Checked == true)
+            {
+                Student.DisplayMode = Student.DisplayModeLastNameF;
+            }
+            if(displayModeTwoRadioButton.Checked == true)
+            {
+                Student.DisplayMode = Student.DisplayModeLastNameFirstName;
+            }
+            if(displayModeThreeRadioButton.Checked == true)
+            {
+                Student.DisplayMode = Student.DisplayModeFirstNameLastNameId;
+            }
+
+            RefreshGroupsListBox();
+        }
+
+        /// <summary>
+        /// Change the order of the names to FirstName and the first letter of LastName
+        /// </summary>
+        /// <param name="sender">RadioButton clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void displayModeOneRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeDisplay();
+        }
+
+        /// <summary>
+        /// Change the order of the names to LastName and FirstName.
+        /// </summary>
+        /// <param name="sender">RadioButton clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void displayModeTwoRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeDisplay();
+        }
+
+        /// <summary>
+        /// Change the order of the names to LastName, FirstName and ID.
+        /// </summary>
+        /// <param name="sender">RadioButton clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void displayModeThreeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeDisplay();
         }
     }
 }
