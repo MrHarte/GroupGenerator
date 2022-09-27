@@ -44,7 +44,7 @@
             this.personList.Clear();
             foreach (string personString in this.importBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                this.personList.Add(new Person(personString));
+                this.personList.Add(new Student(personString));
             }
 
             this.Close();
