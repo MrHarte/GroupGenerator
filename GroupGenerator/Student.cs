@@ -10,13 +10,12 @@ namespace GroupGenerator
     /// <summary>
     /// This class holds the information of student.
     /// </summary>
-    internal class Student : Person
+    public class Student : Person
     {
         /// <summary>
         /// Gets or sets the name of the person.
         /// </summary>
         public override string Name { get; set; }
-
 
         /// <summary>
         /// This constant field holds the number 1 which is significant of the first display mode(Ted M.).
