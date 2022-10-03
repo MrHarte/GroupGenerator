@@ -37,10 +37,6 @@ namespace GroupGenerator
             FirstName = " ";
             LastName = " ";
             DisplayMode = 0;
-            name = FirstName + LastName;
-            Random rand = new Random();
-            int number = rand.Next();
-            this.StudentID = rand.Next(0, 10000000).ToString("D7");
 
         }
     }
